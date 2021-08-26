@@ -9,6 +9,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import ImagesPage from "./components/ImagesPage";
 import SubmitImagePage from "./components/SubmitImagePage";
+import ProfilePage from "./components/ProfilePage";
 import { authenticate } from "./store/session";
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
 		<BrowserRouter>
 			<NavBar />
 			<Switch>
-				<Route path="/login" exact={true}>
+				<Route path="/" exact={true}>
 					<LoginForm />
 				</Route>
 				<Route path="/sign-up" exact={true}>
@@ -42,14 +43,14 @@ function App() {
 				<ProtectedRoute path="/users/:userId" exact={true}>
 					<User />
 				</ProtectedRoute>
-				<ProtectedRoute path="/" exact={true}>
-					<h1>My Home Page</h1>
-				</ProtectedRoute>
 				<ProtectedRoute path="/images" exact={true}>
 					<ImagesPage />
 				</ProtectedRoute>
 				<ProtectedRoute path="/images/new" exact={true}>
 					<SubmitImagePage />
+				</ProtectedRoute>
+				<ProtectedRoute path="/profile" exact={true}>
+					<ProfilePage />
 				</ProtectedRoute>
 			</Switch>
 		</BrowserRouter>
