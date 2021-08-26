@@ -6,7 +6,6 @@ class Image(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     img = db.Column(db.String(255), nullable=False)
-    mimetype = db.Column(db.String(255), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     caption = db.Column(db.String(200))
     created_at = db.Column(db.DateTime, default=db.func.now())
@@ -18,7 +17,6 @@ class Image(db.Model):
         return {
             "id": self.id,
             "img": self.img,
-            "mimetype": self.mimetype,
             "user_id": self.user_id,
             "caption": self.caption
         }
