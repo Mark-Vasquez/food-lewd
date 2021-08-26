@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import ImagesPage from "./components/ImagesPage";
+import SubmitImagePage from "./components/SubmitImagePage";
 import { authenticate } from "./store/session";
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
 				</ProtectedRoute>
 				<ProtectedRoute path="/images" exact={true}>
 					<ImagesPage />
+				</ProtectedRoute>
+				<ProtectedRoute path="/images/new" exact={true}>
+					<SubmitImagePage />
 				</ProtectedRoute>
 			</Switch>
 		</BrowserRouter>

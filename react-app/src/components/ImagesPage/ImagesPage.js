@@ -4,6 +4,7 @@ import { fetchAllImages } from "../../store/image";
 
 const ImagesPage = () => {
 	const dispatch = useDispatch();
+	// Convert the normalized state object values into an array
 	const images = useSelector((state) => Object.values(state.images));
 	console.log("nicky yam", images);
 
@@ -14,7 +15,7 @@ const ImagesPage = () => {
 		<>
 			<h1>Images Page</h1>
 			<div>
-				{images.map((image) => (
+				{images.reverse().map((image) => (
 					<div key={image.id}>
 						<img src={image.img} alt="test" />
 						<p>{image.caption}</p>
