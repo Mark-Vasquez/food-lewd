@@ -49,6 +49,11 @@ export const fetchUserImages = () => async (dispatch) => {
 };
 
 // Thunk to fetch request for a specific image with ID
+export const fetchImage = (image_id) => async (dispatch) => {
+	const res = await fetch(`/api/images/${image_id}`);
+	const { image } = await res.json();
+	dispatch(getImage(image));
+};
 
 const initialState = {};
 
@@ -65,6 +70,11 @@ const imageReducer = (state = initialState, action) => {
 			return {
 				...state,
 				...action.user_images,
+			};
+		case GET_IMAGE:
+			return {
+				...state,
+				...action.image,
 			};
 		default:
 			return state;

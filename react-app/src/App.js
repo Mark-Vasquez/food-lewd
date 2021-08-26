@@ -10,6 +10,7 @@ import User from "./components/User";
 import ImagesPage from "./components/ImagesPage";
 import SubmitImagePage from "./components/SubmitImagePage";
 import ProfilePage from "./components/ProfilePage";
+import ImagePage from "./components/ImagePage";
 import { authenticate } from "./store/session";
 
 function App() {
@@ -51,6 +52,9 @@ function App() {
 				</ProtectedRoute>
 				<ProtectedRoute path="/profile" exact={true}>
 					<ProfilePage />
+				</ProtectedRoute>
+				<ProtectedRoute path="/images/:image_id">
+					<ImagePage />
 				</ProtectedRoute>
 			</Switch>
 		</BrowserRouter>
