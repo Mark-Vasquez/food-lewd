@@ -15,7 +15,8 @@ image_routes = Blueprint("images", __name__)
 @login_required
 def all_images():
     # Querying for the latest updated
-    images = Image.query.order_by(Image.updated_at.desc()).all()
+    images = Image.query.order_by(Image.created_at).all()
+    print("imagesss", images)
     return {"images": {image.id: image.to_dict() for image in images}}
 
 

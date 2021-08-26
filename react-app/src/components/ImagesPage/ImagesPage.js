@@ -15,7 +15,7 @@ const ImagesPage = () => {
 		<>
 			<h1>Images Page</h1>
 			<div>
-				{images.map((image) => (
+				{images.reverse().map((image) => (
 					<div key={image.id}>
 						<img src={image.img} alt="test" />
 						<p>{image.caption}</p>
