@@ -31,6 +31,11 @@ const deleteImage = (image_id) => ({
 	image_id,
 });
 
+// Thunk making post request to add images
+export const addPhoto = (file) => async (dispatch) => {
+	const res = await fetch("/api/images/user/");
+};
+
 // Thunk to fetch request for recent images by all users
 export const fetchAllImages = () => async (dispatch) => {
 	const res = await fetch("/api/images");

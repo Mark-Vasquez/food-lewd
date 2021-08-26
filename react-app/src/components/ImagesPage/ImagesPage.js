@@ -4,6 +4,7 @@ import { fetchAllImages } from "../../store/image";
 
 const ImagesPage = () => {
 	const dispatch = useDispatch();
+	// Convert the normalized state object values into an array
 	const images = useSelector((state) => Object.values(state.images));
 	console.log("nicky yam", images);
 
