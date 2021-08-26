@@ -5,7 +5,7 @@ import styles from "./SubmitImagePage.module.css";
 
 const SubmitImagePage = () => {
 	const history = useHistory(); // To redirect after image upload success
-	const [image, setImage] = useState("duvk u");
+	const [image, setImage] = useState(null);
 	const [imageLoading, setImageLoading] = useState(false);
 	const [caption, setCaption] = useState(null);
 

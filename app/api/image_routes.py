@@ -16,7 +16,6 @@ image_routes = Blueprint("images", __name__)
 def all_images():
     # Querying for the latest updated
     images = Image.query.order_by(Image.created_at).all()
-    print("imagesss", images)
     return {"images": {image.id: image.to_dict() for image in images}}
 
 
@@ -65,3 +64,12 @@ def upload_image():
         db.session.add(new_image)
         db.session.commit()
         return {"Image": new_image.to_dict()}
+
+
+# View all images by a current user
+@image_routes.route("/user", methods=["GET"])
+@login_required
+def user_images():
+    user_images = Image.query.filter(
+        Image.user_id == current_user.id).order_by(Image.created_at).all()
+    return {"user_images": {image.id: image.to_dict() for image in user_images}}
