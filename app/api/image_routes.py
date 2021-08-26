@@ -73,3 +73,12 @@ def user_images():
     user_images = Image.query.filter(
         Image.user_id == current_user.id).order_by(Image.created_at).all()
     return {"user_images": {image.id: image.to_dict() for image in user_images}}
+
+# View a specific image
+
+
+@image_routes.route("/<int:image_id>", methods=["GET"])
+@login_required
+def get_one_image(image_id):
+    single_image = Image.query.filter(Image.id == image_id)
+    return {"image": {image.id: image.to_dict() for image in single_image}}

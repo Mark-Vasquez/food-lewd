@@ -48,6 +48,8 @@ export const fetchUserImages = () => async (dispatch) => {
 	dispatch(getUserImages(user_images));
 };
 
+// Thunk to fetch request for a specific image with ID
+
 const initialState = {};
 
 // Create a Reducer
