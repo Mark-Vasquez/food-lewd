@@ -34,7 +34,7 @@ const deleteImage = (image_id) => ({
 // Thunk to fetch request for recent images by all users
 export const fetchAllImages = () => async (dispatch) => {
 	const res = await fetch("/api/images");
-	const images = await res.json();
+	const { images } = await res.json();
 	dispatch(getAllImages(images)); // payload is images from database
 };
 
@@ -46,10 +46,8 @@ const imageReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case GET_IMAGES:
 			return {
-				...newState,
-				...Object.fromEntries(
-					action.images.map((image) => [image.id, image])
-				),
+				...state,
+				...action.images,
 			};
 		default:
 			return state;
