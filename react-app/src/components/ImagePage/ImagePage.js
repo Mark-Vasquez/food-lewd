@@ -1,7 +1,8 @@
 import styles from "./ImagePage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchImage } from "../../store/image";
+import { fetchImage, destroyImage } from "../../store/image";
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 const ImagePage = () => {
@@ -20,6 +21,19 @@ const ImagePage = () => {
 			<div>
 				<img src={image?.img} alt="food" />
 				<p>{image?.caption}</p>
+				{user_id === image?.user_id ? (
+					<Link
+						onClick={async () => {
+							await dispatch(destroyImage(image?.id));
+							// history.push("/profile");
+						}}>
+						Delete
+						<img
+							src="https://www.cityofkyle.com/sites/default/files/styles/full_node_primary/public/imageattachments/utilitybilling/page/1235/ub_-_trash_can_image.jpg?itok=HDnp1PbF"
+							alt="trash bruh"
+						/>
+					</Link>
+				) : null}
 			</div>
 		</>
 	);
