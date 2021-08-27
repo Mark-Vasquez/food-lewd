@@ -9,7 +9,6 @@ const ImagePage = () => {
 	const dispatch = useDispatch();
 	const { image_id } = useParams();
 	const image = useSelector((state) => Object.values(state.images)[0]);
-	console.log("thicky", image);
 	const user_id = useSelector((state) => state.session.user.id);
 
 	useEffect(() => {
