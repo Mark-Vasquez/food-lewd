@@ -7,7 +7,7 @@ const SubmitImagePage = () => {
 	const history = useHistory(); // To redirect after image upload success
 	const [image, setImage] = useState(null);
 	const [imageLoading, setImageLoading] = useState(false);
-	const [caption, setCaption] = useState(null);
+	const [caption, setCaption] = useState("");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();

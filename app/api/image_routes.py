@@ -74,11 +74,21 @@ def user_images():
         Image.user_id == current_user.id).order_by(Image.created_at).all()
     return {"user_images": {image.id: image.to_dict() for image in user_images}}
 
+
 # View a specific image
-
-
 @image_routes.route("/<int:image_id>", methods=["GET"])
 @login_required
 def get_one_image(image_id):
     single_image = Image.query.filter(Image.id == image_id)
     return {"image": {image.id: image.to_dict() for image in single_image}}
+
+
+# Delete a specific image
+@image_routes.route("/<int:image_id>", methods=["DELETE"])
+@login_required
+def delete_image(image_id):
+    # get data by primary key
+    image = Image.query.get(image_id)
+    db.session.delete(image)
+    db.session.commit()
+    return "Image Deleted"
