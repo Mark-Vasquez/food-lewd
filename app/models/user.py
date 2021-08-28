@@ -19,6 +19,7 @@ class User(db.Model, UserMixin):
     # of the other class
     liked_images = db.relationship(
         "Image", secondary="likes", back_populates="user_likes", cascade="all, delete")
+    images = db.relationship("Image", back_populates="user")
     comments = db.relationship(
         "Comment", back_populates="user", cascade="all, delete-orphan")
 

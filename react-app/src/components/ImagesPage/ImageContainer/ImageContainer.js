@@ -15,7 +15,7 @@ const ImageContainer = ({ image }) => {
 
 	useEffect(() => {
 		dispatch(fetchImageComments(image.id));
-	}, [dispatch]);
+	}, [dispatch, image.id]);
 
 	return (
 		<>
