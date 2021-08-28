@@ -31,7 +31,11 @@ const ImagePage = () => {
 					{comments.map((comment) =>
 						comment.image_id === image?.id &&
 						user_id !== comment.user_id ? (
-							<p key={comment.id}>{comment.content}</p>
+							<p key={comment.id}>
+								<b>{comment.user}</b>
+								<span> </span>
+								<span>{comment.content}</span>
+							</p>
 						) : null
 					)}
 				</div>
