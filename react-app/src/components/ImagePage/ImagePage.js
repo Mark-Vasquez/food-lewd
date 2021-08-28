@@ -27,10 +27,9 @@ const ImagePage = () => {
 				<p>{image?.caption}</p>
 				<p>----Comment below-----</p>
 				<div>
-					<p>Non users Comments</p>
+					<p>All Comments</p>
 					{comments.map((comment) =>
-						comment.image_id === image?.id &&
-						user_id !== comment.user_id ? (
+						comment.image_id === image?.id ? (
 							<p key={comment.id}>
 								<b>{comment.user}</b>
 								<span> </span>
@@ -39,7 +38,6 @@ const ImagePage = () => {
 						) : null
 					)}
 				</div>
-
 				{user_id === image?.user_id ? (
 					<button
 						onClick={async () => {
