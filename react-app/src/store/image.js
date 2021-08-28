@@ -1,15 +1,15 @@
 // Define Action Types as Constants
-// const POST_IMAGE = "image/postImage";
+const POST_IMAGE = "image/postImage";
 const GET_IMAGES = "image/getImages"; // View all images
 const GET_USER_IMAGES = "image/getUserImages"; // View images by user
 const GET_IMAGE = "image/getImage"; // View specific image
 const DELETE_IMAGE = "image/deleteImage"; // Delete specific image
 
 // Define Action Creators
-// const postImage = (image) => ({
-// 	type: POST_IMAGE,
-// 	image,
-// });
+const postImage = (image) => ({
+	type: POST_IMAGE,
+	image,
+});
 
 const getAllImages = (images) => ({
 	type: GET_IMAGES,
@@ -31,10 +31,31 @@ const deleteImage = (image_id) => ({
 	image_id,
 });
 
+// Thunk to post images to api
+export const sendImage = (image, caption) => async (dispatch) => {
+	const formData = new FormData();
+	formData.append("img", image);
+	formData.append("caption", caption);
+
+	const res = await fetch("/api/images/user", {
+		method: "POST",
+		body: formData,
+	});
+	if (res.ok) {
+		const imagePost = await res.json(); // object data from formData
+		dispatch(postImage(imagePost));
+	}
+
+	return res;
+};
+
 // Thunk to fetch request for recent images by all users
 export const fetchAllImages = () => async (dispatch) => {
-	const res = await fetch("/api/images");
-
+	const res = await fetch("/api/images", {
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
 	if (res.ok) {
 		// destructure images so "images" key is not nested twice
 		const { images } = await res.json();
@@ -44,8 +65,11 @@ export const fetchAllImages = () => async (dispatch) => {
 
 // Thunk to fetch request for recent user images
 export const fetchUserImages = () => async (dispatch) => {
-	const res = await fetch("/api/images/user");
-
+	const res = await fetch("/api/images/user", {
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
 	if (res.ok) {
 		// destructure the key you gave it in the json return
 		const { user_images } = await res.json();
@@ -55,8 +79,11 @@ export const fetchUserImages = () => async (dispatch) => {
 
 // Thunk to fetch request for a specific image with ID
 export const fetchImage = (image_id) => async (dispatch) => {
-	const res = await fetch(`/api/images/${image_id}`);
-
+	const res = await fetch(`/api/images/${image_id}`, {
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
 	if (res.ok) {
 		const { image } = await res.json();
 		dispatch(getImage(image));
@@ -78,8 +105,12 @@ const initialState = {};
 
 // Create a Reducer
 const imageReducer = (state = initialState, action) => {
-	const newState = { ...state };
 	switch (action.type) {
+		case POST_IMAGE:
+			return {
+				...state,
+				...action.image,
+			};
 		case GET_IMAGES:
 			return {
 				...state,
@@ -96,6 +127,7 @@ const imageReducer = (state = initialState, action) => {
 				...action.image,
 			};
 		case DELETE_IMAGE:
+			const newState = { ...state };
 			delete newState[action.image_id];
 			console.log("DRKZZA:", newState);
 			return newState;

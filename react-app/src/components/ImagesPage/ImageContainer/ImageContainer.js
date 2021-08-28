@@ -26,7 +26,7 @@ const ImageContainer = ({ image }) => {
 				<p>{image.caption}</p>
 				<p>----Comment below-----</p>
 				<div>
-					<p>Non users Comments</p>
+					<p>All Comments</p>
 					{comments.map((comment) =>
 						comment.image_id === image.id ? (
 							<p>{comment.content}</p>
@@ -36,7 +36,7 @@ const ImageContainer = ({ image }) => {
 				{user_id === image.user_id ? (
 					<button
 						onClick={async () => {
-							await dispatch(destroyImage());
+							await dispatch(destroyImage(image.id));
 						}}>
 						<img
 							src="https://www.cityofkyle.com/sites/default/files/styles/full_node_primary/public/imageattachments/utilitybilling/page/1235/ub_-_trash_can_image.jpg?itok=HDnp1PbF"
