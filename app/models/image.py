@@ -16,6 +16,7 @@ class Image(db.Model):
     # of the other class
     user_likes = db.relationship(
         "User", secondary="likes", back_populates="liked_images", cascade="all, delete")
+    user = db.relationship("User", back_populates="images")
     comments = db.relationship(
         "Comment", back_populates="image", cascade="all, delete-orphan")
 
@@ -24,5 +25,6 @@ class Image(db.Model):
             "id": self.id,
             "img": self.img,
             "user_id": self.user_id,
-            "caption": self.caption
-        }
+            "caption": self.caption,
+            # "user": [user.to_dict() for user in self.user]
+            "user": self.user.username}

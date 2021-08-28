@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import Image, db
+from app.models import Image, User, db
 from app.forms import ImageSubmitForm
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename
@@ -15,7 +15,7 @@ image_routes = Blueprint("images", __name__)
 @login_required
 def all_images():
     # Querying for the latest updated
-    images = Image.query.order_by(Image.created_at).all()
+    images = Image.query.join(User).order_by(Image.created_at).all()
     return {"images": {image.id: image.to_dict() for image in images}}
 
 
