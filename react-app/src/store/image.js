@@ -33,8 +33,11 @@ const deleteImage = (image_id) => ({
 
 // Thunk to fetch request for recent images by all users
 export const fetchAllImages = () => async (dispatch) => {
-	const res = await fetch("/api/images");
-
+	const res = await fetch("/api/images", {
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
 	if (res.ok) {
 		// destructure images so "images" key is not nested twice
 		const { images } = await res.json();
