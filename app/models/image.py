@@ -27,4 +27,5 @@ class Image(db.Model):
             "user_id": self.user_id,
             "caption": self.caption,
             # "user": [user.to_dict() for user in self.user]
-            "user": self.user.username}
+            "user": self.user.username
+        }
