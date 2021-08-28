@@ -23,6 +23,7 @@ const ImagePage = () => {
 			<h1>A single specific Image</h1>
 			<div>
 				<img src={image?.img} alt="food" />
+				<h3>{image?.user}</h3>
 				<p>{image?.caption}</p>
 				<p>----Comment below-----</p>
 				<div>
