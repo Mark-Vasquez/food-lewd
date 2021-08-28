@@ -129,7 +129,6 @@ const imageReducer = (state = initialState, action) => {
 		case DELETE_IMAGE:
 			const newState = { ...state };
 			delete newState[action.image_id];
-			console.log("DRKZZA:", newState);
 			return newState;
 		default:
 			return state;
