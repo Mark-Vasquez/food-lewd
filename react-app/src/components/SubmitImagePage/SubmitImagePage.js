@@ -40,8 +40,8 @@ const SubmitImagePage = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const res = await dispatch(sendImage(image, caption));
 		setImageLoading(true);
+		const res = await dispatch(sendImage(image, caption));
 
 		if (res.ok) {
 			setImageLoading(false);
