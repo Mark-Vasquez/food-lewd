@@ -1,15 +1,15 @@
 // Define Action Types as Constants
-// const POST_IMAGE = "image/postImage";
+const POST_IMAGE = "image/postImage";
 const GET_IMAGES = "image/getImages"; // View all images
 const GET_USER_IMAGES = "image/getUserImages"; // View images by user
 const GET_IMAGE = "image/getImage"; // View specific image
 const DELETE_IMAGE = "image/deleteImage"; // Delete specific image
 
 // Define Action Creators
-// const postImage = (image) => ({
-// 	type: POST_IMAGE,
-// 	image,
-// });
+const postImage = (image) => ({
+	type: POST_IMAGE,
+	image,
+});
 
 const getAllImages = (images) => ({
 	type: GET_IMAGES,
@@ -30,6 +30,29 @@ const deleteImage = (image_id) => ({
 	type: DELETE_IMAGE,
 	image_id,
 });
+
+// Thunk to post images to api
+export const sendImage = (image, caption) => async (dispatch) => {
+	const formData = new FormData();
+	formData.append("img", image);
+	formData.append("caption", caption);
+
+	const res = await fetch("/api/images/user", {
+		method: "POST",
+		body: formData,
+	});
+	console.log("fucking this is res", res);
+	if (res.ok) {
+		const imagePost = await res.json(); // object data from formData
+		dispatch(postImage(imagePost));
+		return imagePost;
+	}
+	console.log("res before the await", res);
+	const poo = await res.json();
+	console.log("poo after the await", poo);
+
+	return res;
+};
 
 // Thunk to fetch request for recent images by all users
 export const fetchAllImages = () => async (dispatch) => {
@@ -89,6 +112,11 @@ const initialState = {};
 const imageReducer = (state = initialState, action) => {
 	const newState = { ...state };
 	switch (action.type) {
+		case POST_IMAGE:
+			return {
+				...state,
+				...action.image,
+			};
 		case GET_IMAGES:
 			return {
 				...state,

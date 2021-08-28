@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import Image, User, db
-from app.forms import ImageSubmitForm
+from app.models import Image, User, db  # Import Image model
+from app.forms import ImageSubmitForm  # Import Image form class
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename
 )
@@ -45,8 +45,6 @@ def upload_image():
 
     url = upload["url"]
     # flask_login allows us to get the current user from the request
-    print("current user:", current_user)
-    print("URL:", url)
 
     # wtf is pulling out info from body of request and fills out the instance of the form
     form = ImageSubmitForm()

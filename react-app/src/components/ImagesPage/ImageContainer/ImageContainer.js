@@ -36,7 +36,7 @@ const ImageContainer = ({ image }) => {
 				{user_id === image.user_id ? (
 					<button
 						onClick={async () => {
-							await dispatch(destroyImage());
+							await dispatch(destroyImage(image.id));
 						}}>
 						<img
 							src="https://www.cityofkyle.com/sites/default/files/styles/full_node_primary/public/imageattachments/utilitybilling/page/1235/ub_-_trash_can_image.jpg?itok=HDnp1PbF"
