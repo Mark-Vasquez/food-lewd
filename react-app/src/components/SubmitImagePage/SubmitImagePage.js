@@ -42,15 +42,13 @@ const SubmitImagePage = () => {
 		e.preventDefault();
 		const res = await dispatch(sendImage(image, caption));
 		setImageLoading(true);
-		console.log(res);
 
-		if (res?.ok) {
-			await res.json();
+		if (res.ok) {
 			setImageLoading(false);
 			history.push("/images");
 		} else {
 			setImageLoading(false);
-			history.push("/");
+
 			//errors here
 		}
 	};

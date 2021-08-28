@@ -41,15 +41,12 @@ export const sendImage = (image, caption) => async (dispatch) => {
 		method: "POST",
 		body: formData,
 	});
-	console.log("fucking this is res", res);
 	if (res.ok) {
 		const imagePost = await res.json(); // object data from formData
+		console.log("This mah imagepost", imagePost);
 		dispatch(postImage(imagePost));
-		return imagePost;
 	}
-	console.log("res before the await", res);
-	const poo = await res.json();
-	console.log("poo after the await", poo);
+	console.log("oiece de resistance");
 
 	return res;
 };
