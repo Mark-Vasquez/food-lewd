@@ -49,7 +49,6 @@ export const fetchUserImages = () => async (dispatch) => {
 	if (res.ok) {
 		// destructure the key you gave it in the json return
 		const { user_images } = await res.json();
-		console.log("THISSSSSS", user_images);
 		dispatch(getUserImages(user_images));
 	}
 };

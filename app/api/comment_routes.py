@@ -11,5 +11,5 @@ comment_routes = Blueprint("comments", __name__)
 @login_required
 def photo_comments(image_id):
     comments = Comment.query.filter(
-        Comment.image_id == image_id).all()
+        Comment.image_id == image_id).order_by(Comment.created_at).all()
     return {"comments": {comment.id: comment.to_dict() for comment in comments}}
