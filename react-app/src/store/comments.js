@@ -1,7 +1,7 @@
 // Define Action Types as Constants
 const POST_COMMENT = "comment/postComments";
 const GET_IMAGE_COMMENTS = "comment/getImageComments";
-const GET_USER_COMMENTS = "comment/getUserComments";
+// const GET_USER_COMMENTS = "comment/getUserComments";
 const EDIT_USER_COMMENT = "comment/editUserComment";
 const DELETE_USER_COMMENT = "comment/deleteUserComment";
 
@@ -15,10 +15,10 @@ const getImageComments = (comments) => ({
 	comments,
 });
 
-const getUserComments = (comments) => ({
-	type: GET_USER_COMMENTS,
-	comments,
-});
+// const getUserComments = (comments) => ({
+// 	type: GET_USER_COMMENTS,
+// 	comments,
+// });
 
 const editUserComment = (edited_comment) => ({
 	type: EDIT_USER_COMMENT,
@@ -30,7 +30,7 @@ const deleteUserComment = (comment_id) => ({
 	comment_id,
 });
 
-// Thunk to fetch
+// Thunk to fetch comments
 export const fetchImageComments = (image_id) => async (dispatch) => {
 	const res = await fetch(`/api/comments/image/${image_id}`, {
 		method: "GET",

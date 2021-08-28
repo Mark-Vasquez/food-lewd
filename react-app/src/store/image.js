@@ -47,8 +47,11 @@ export const fetchAllImages = () => async (dispatch) => {
 
 // Thunk to fetch request for recent user images
 export const fetchUserImages = () => async (dispatch) => {
-	const res = await fetch("/api/images/user");
-
+	const res = await fetch("/api/images/user", {
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
 	if (res.ok) {
 		// destructure the key you gave it in the json return
 		const { user_images } = await res.json();
@@ -58,8 +61,11 @@ export const fetchUserImages = () => async (dispatch) => {
 
 // Thunk to fetch request for a specific image with ID
 export const fetchImage = (image_id) => async (dispatch) => {
-	const res = await fetch(`/api/images/${image_id}`);
-
+	const res = await fetch(`/api/images/${image_id}`, {
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
 	if (res.ok) {
 		const { image } = await res.json();
 		dispatch(getImage(image));
