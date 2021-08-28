@@ -11,33 +11,6 @@ const SubmitImagePage = () => {
 	const [imageLoading, setImageLoading] = useState(false);
 	const [caption, setCaption] = useState("");
 
-	// const handleSubmit = async (e) => {
-	// 	e.preventDefault();
-	// 	const formData = new FormData();
-	// 	// append makes key-value pairs -- "image": image
-	// 	formData.append("img", image);
-	// 	formData.append("caption", caption);
-
-	// 	// aws uploads can be a bit slow to display
-	// 	// so set a loading message under submit button
-	// 	setImageLoading(true);
-
-	// 	const res = await fetch("/api/images/user", {
-	// 		method: "POST",
-	// 		body: formData,
-	// 	});
-
-	// 	if (res.ok) {
-	// 		await res.json();
-	// 		setImageLoading(false);
-	// 		history.push("/images");
-	// 	} else {
-	// 		setImageLoading(false);
-	// 		// set validation error here!
-	// 		console.log("errooooorrrs");
-	// 	}
-	// };
-
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setImageLoading(true);

@@ -61,7 +61,8 @@ def upload_image():
         # Commit the instantiated model to db
         db.session.add(new_image)
         db.session.commit()
-        return {"Image": new_image.to_dict()}
+        # Set id as the key
+        return {new_image.id: new_image.to_dict()}
 
 
 # View all images by a current user

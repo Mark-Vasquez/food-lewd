@@ -43,10 +43,8 @@ export const sendImage = (image, caption) => async (dispatch) => {
 	});
 	if (res.ok) {
 		const imagePost = await res.json(); // object data from formData
-		console.log("This mah imagepost", imagePost);
 		dispatch(postImage(imagePost));
 	}
-	console.log("oiece de resistance");
 
 	return res;
 };
@@ -107,7 +105,6 @@ const initialState = {};
 
 // Create a Reducer
 const imageReducer = (state = initialState, action) => {
-	const newState = { ...state };
 	switch (action.type) {
 		case POST_IMAGE:
 			return {
@@ -130,6 +127,7 @@ const imageReducer = (state = initialState, action) => {
 				...action.image,
 			};
 		case DELETE_IMAGE:
+			const newState = { ...state };
 			delete newState[action.image_id];
 			console.log("DRKZZA:", newState);
 			return newState;
