@@ -25,14 +25,13 @@ const ImageContainer = ({ image }) => {
 				<p>{image.caption}</p>
 				<p>----Comment below-----</p>
 				<div>
+					<p>Non users Comments</p>
 					{comments.map((comment) =>
 						comment.image_id === image.id ? (
 							<p>{comment.content}</p>
 						) : null
 					)}
 				</div>
-				{console.log("left", user_id)}
-				{console.log("right", image.user_id)}
 				{user_id === image.user_id ? (
 					<button
 						onClick={async () => {
