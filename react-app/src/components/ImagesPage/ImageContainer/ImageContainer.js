@@ -22,6 +22,7 @@ const ImageContainer = ({ image }) => {
 			<h1>Image</h1>
 			<div>
 				<img src={image.img} alt="" />
+				<h3>{image.user}</h3>
 				<p>{image.caption}</p>
 				<p>----Comment below-----</p>
 				<div>
