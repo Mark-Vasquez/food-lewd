@@ -4,15 +4,19 @@ import { useParams } from "react-router-dom";
 import { fetchImage, destroyImage } from "../../store/image";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { fetchImageComments } from "../../store/comments";
 
 const ImagePage = () => {
 	const dispatch = useDispatch();
 	const { image_id } = useParams();
 	const image = useSelector((state) => Object.values(state.images)[0]);
 	const user_id = useSelector((state) => state.session.user.id);
+	const comments = useSelector((state) => Object.values(state.comments));
+	console.log("commas", comments);
 
 	useEffect(() => {
 		dispatch(fetchImage(image_id));
+		dispatch(fetchImageComments(image_id));
 	}, [dispatch, image_id]);
 	return (
 		<>
@@ -20,8 +24,19 @@ const ImagePage = () => {
 			<div>
 				<img src={image?.img} alt="food" />
 				<p>{image?.caption}</p>
+				<p>----Comment below-----</p>
+				<div>
+					<p>Non users Comments</p>
+					{comments.map((comment) =>
+						comment.image_id === image?.id &&
+						user_id !== comment.user_id ? (
+							<p key={comment.id}>{comment.content}</p>
+						) : null
+					)}
+				</div>
+
 				{user_id === image?.user_id ? (
-					<Link
+					<button
 						onClick={async () => {
 							await dispatch(destroyImage(image?.id));
 							// history.push("/profile");
@@ -31,7 +46,7 @@ const ImagePage = () => {
 							src="https://www.cityofkyle.com/sites/default/files/styles/full_node_primary/public/imageattachments/utilitybilling/page/1235/ub_-_trash_can_image.jpg?itok=HDnp1PbF"
 							alt="trash bruh"
 						/>
-					</Link>
+					</button>
 				) : null}
 			</div>
 		</>

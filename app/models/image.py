@@ -11,7 +11,13 @@ class Image(db.Model):
     created_at = db.Column(db.DateTime, default=db.func.now())
     updated_at = db.Column(
         db.DateTime, default=db.func.now(), onupdate=db.func.now())
-    user = db.relationship("User", back_populates="images")
+
+    # These relationships are just a list of instances
+    # of the other class
+    user_likes = db.relationship(
+        "User", secondary="likes", back_populates="liked_images", cascade="all, delete")
+    comments = db.relationship(
+        "Comment", back_populates="image", cascade="all, delete-orphan")
 
     def to_dict(self):
         return {

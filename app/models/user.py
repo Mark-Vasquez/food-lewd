@@ -14,7 +14,13 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, default=db.func.now())
     updated_at = db.Column(
         db.DateTime, default=db.func.now(), onupdate=db.func.now())
-    images = db.relationship("Image", back_populates="user")
+
+    # These relationships are just a list of instances
+    # of the other class
+    liked_images = db.relationship(
+        "Image", secondary="likes", back_populates="user_likes", cascade="all, delete")
+    comments = db.relationship(
+        "Comment", back_populates="user", cascade="all, delete-orphan")
 
     @property
     def password(self):
