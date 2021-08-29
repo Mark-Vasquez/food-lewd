@@ -61,7 +61,8 @@ def upload_image():
         # Commit the instantiated model to db
         db.session.add(new_image)
         db.session.commit()
-        # Set id as the key
+        # Set id as the key so value in state doesn't get doubled up
+        # with the images from the GET route state
         return {new_image.id: new_image.to_dict()}
 
 
