@@ -33,7 +33,7 @@ const deleteUserComment = (comment_id) => ({
 });
 
 // Thunk to post a comment
-export const postImageComment = (content, image_id) => async (dispatch) => {
+export const postImageComment = (image_id, content) => async (dispatch) => {
 	const res = await fetch(`/api/comments/image/${image_id}`, {
 		method: "POST",
 		headers: {

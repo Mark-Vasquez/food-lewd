@@ -3,16 +3,33 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchImage, destroyImage } from "../../store/image";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchImageComments } from "../../store/comments";
+import { postImageComment } from "../../store/comments";
+import Errors from "../Errors";
 
 const ImagePage = () => {
 	const dispatch = useDispatch();
 	const { image_id } = useParams();
+	// Not mapping, so just grab the one and only index
 	const image = useSelector((state) => Object.values(state.images)[0]);
 	const user_id = useSelector((state) => state.session.user.id);
 	const comments = useSelector((state) => Object.values(state.comments));
-	console.log("commas", comments);
+	const [comment, setComment] = useState("");
+
+	const clearForm = () => {
+		setComment("");
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		const success = await dispatch(postImageComment(comment, image.id));
+		// looking for a returned truthy value
+		if (success) {
+			clearForm();
+		}
+	};
 
 	useEffect(() => {
 		dispatch(fetchImage(image_id));
@@ -37,6 +54,18 @@ const ImagePage = () => {
 							</p>
 						) : null
 					)}
+				</div>
+				<div>
+					<form onSubmit={handleSubmit}>
+						<textarea
+							value={comment}
+							placeholder="Add a comment..."
+							onChange={(e) => {
+								setComment(e.target.value);
+							}}></textarea>
+						<button>Post</button>
+					</form>
+					<Errors />
 				</div>
 				{user_id === image?.user_id ? (
 					<button
