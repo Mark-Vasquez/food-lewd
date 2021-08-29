@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./SubmitImagePage.module.css";
 import { sendImage } from "../../store/image";
+import Errors from "../Errors";
 
 const SubmitImagePage = () => {
 	const dispatch = useDispatch();
@@ -60,6 +61,7 @@ const SubmitImagePage = () => {
 				/>
 			</div>
 			<button type="submit">Submit</button>
+			<Errors />
 			{imageLoading && <p>Loading...</p>}
 		</form>
 	);
