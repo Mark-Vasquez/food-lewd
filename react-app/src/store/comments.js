@@ -42,12 +42,17 @@ export const postImageComment = (content, image_id) => async (dispatch) => {
 		body: JSON.stringify({ content: content }),
 	});
 
+	// comment will either be the parsed body or the array of errors returned
+	const comment = await res.json();
+	// if fetch to API doesn't cause a 500
 	if (res.ok) {
-		const comment = await res.json();
 		dispatch(postComment(comment));
-		// returns back to where postImageComment was dispatch
+		// returns back to where postImageComment was dispatched
 		// as a truthy value
 		return "Success";
+	} else {
+		// Set Errors
+		console.log(comment);
 	}
 };
 
