@@ -21,7 +21,7 @@ const ImageContainer = ({ image }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		const success = await dispatch(postImageComment(comment, image.id));
+		const success = await dispatch(postImageComment(image.id, comment));
 		// looking for a returned truthy value
 		if (success) {
 			clearForm();
