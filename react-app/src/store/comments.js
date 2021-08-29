@@ -1,3 +1,5 @@
+import { setErrors } from "./errors";
+
 // Define Action Types as Constants
 const POST_COMMENT = "comment/postComments";
 const GET_IMAGE_COMMENTS = "comment/getImageComments";
@@ -51,8 +53,8 @@ export const postImageComment = (content, image_id) => async (dispatch) => {
 		// as a truthy value
 		return "Success";
 	} else {
-		// Set Errors
-		console.log(comment);
+		// give the action creator the comment payload
+		dispatch(setErrors(comment));
 	}
 };
 
