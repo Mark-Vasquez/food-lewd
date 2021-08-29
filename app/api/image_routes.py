@@ -62,7 +62,7 @@ def upload_image():
         db.session.add(new_image)
         db.session.commit()
         # Set id as the key so value in state doesn't get doubled up
-        # with the images from the GET route state
+        # with the images from the GET route state (match the return structure)
         return {new_image.id: new_image.to_dict()}
 
 

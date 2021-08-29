@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import Comment, db  # Import Comment model
 from app.forms import CommentForm  # Import Comment form class
@@ -32,3 +32,12 @@ def post_comment(image_id):
         db.session.add(comment)
         db.session.commit()
         return {comment.id: comment.to_dict()}
+    else:
+        # Anything returned from backend can be part of
+        # the redux state when returned, including errors
+        errors = form.errors
+        # when not returning dictionary, need to tell flask to
+        # turn this list into JSON with jsonify
+        return jsonify([f'{field_key.capitalize()}: {error}'
+                        for field_key in errors
+                        for error in errors[field_key]]), 400
