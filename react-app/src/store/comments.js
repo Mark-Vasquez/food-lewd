@@ -41,7 +41,7 @@ export const postImageComment = (content, image_id) => async (dispatch) => {
 		},
 		// turn body into json because it expects it
 		// body of request key NEEDS to match the wtform key to populate properly
-		body: JSON.stringify({ content: content }),
+		body: JSON.stringify({ comment: content }),
 	});
 
 	// comment will either be the parsed body or the array of errors returned

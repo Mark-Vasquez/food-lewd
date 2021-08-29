@@ -1,3 +1,5 @@
+import { setErrors } from "./errors";
+
 // Define Action Types as Constants
 const POST_IMAGE = "image/postImage";
 const GET_IMAGES = "image/getImages"; // View all images
@@ -41,12 +43,14 @@ export const sendImage = (image, caption) => async (dispatch) => {
 		method: "POST",
 		body: formData,
 	});
-	if (res.ok) {
-		const imagePost = await res.json(); // object data from formData
-		dispatch(postImage(imagePost));
-	}
 
-	return res;
+	const imagePost = await res.json(); // object data from formData
+	if (res.ok) {
+		dispatch(postImage(imagePost));
+		return "Success";
+	} else {
+		dispatch(setErrors(imagePost));
+	}
 };
 
 // Thunk to fetch request for recent images by all users
