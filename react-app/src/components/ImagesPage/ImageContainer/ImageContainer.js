@@ -6,6 +6,7 @@ import { postImageComment } from "../../../store/comments";
 import { Link } from "react-router-dom";
 import styles from "./ImageContainer.module.css";
 import { useState } from "react";
+import Errors from "../../Errors";
 
 const ImageContainer = ({ image }) => {
 	const dispatch = useDispatch();
@@ -61,6 +62,7 @@ const ImageContainer = ({ image }) => {
 							}}></textarea>
 						<button>Post</button>
 					</form>
+					<Errors />
 				</div>
 				{user_id === image.user_id ? (
 					<button

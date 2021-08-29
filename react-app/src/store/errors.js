@@ -15,7 +15,7 @@ export const setErrors = (errors) => ({
 // what in the current slice of state. Don't need to key in
 const initialState = [];
 
-const errorReducer = (state = initialState, action) => {
+const errorReducer = (_state, action) => {
 	switch (action.type) {
 		case SET_ERRORS:
 			return action.errors; // completely replace, don't spread previous state in
