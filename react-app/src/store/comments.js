@@ -30,6 +30,27 @@ const deleteUserComment = (comment_id) => ({
 	comment_id,
 });
 
+// Thunk to post a comment
+export const postImageComment = (content, image_id) => async (dispatch) => {
+	console.log("CUMHEREE", content);
+	const res = await fetch(`/api/comments/image/${image_id}`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		// turn body into json because it expects it
+		body: JSON.stringify({ content }),
+	});
+
+	if (res.ok) {
+		const comment = await res.json();
+		dispatch(postComment(comment));
+		// returns back to where postImageComment was dispatch
+		// as a truthy value
+		return "Success";
+	}
+};
+
 // Thunk to fetch comments
 export const fetchImageComments = (image_id) => async (dispatch) => {
 	const res = await fetch(`/api/comments/image/${image_id}`, {
@@ -50,6 +71,11 @@ const initialState = {};
 const commentReducer = (state = initialState, action) => {
 	const newState = { ...state };
 	switch (action.type) {
+		case POST_COMMENT:
+			return {
+				...state,
+				...action.comment,
+			};
 		case GET_IMAGE_COMMENTS:
 			return {
 				...state,

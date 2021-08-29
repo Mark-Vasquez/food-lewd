@@ -2,16 +2,30 @@ import { fetchImageComments } from "../../../store/comments";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { destroyImage } from "../../../store/image";
+import { postImageComment } from "../../../store/comments";
 import { Link } from "react-router-dom";
 import styles from "./ImageContainer.module.css";
+import { useState } from "react";
 
 const ImageContainer = ({ image }) => {
 	const dispatch = useDispatch();
 	const user_id = useSelector((state) => state.session.user.id);
 	const comments = useSelector((state) => Object.values(state.comments));
-	console.log("JIM", user_id);
-	console.log(image.id);
-	console.log("commments", comments);
+	const [comment, setComment] = useState("");
+
+	const clearForm = () => {
+		setComment("");
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		const success = await dispatch(postImageComment(comment, image.id));
+		// looking for a returned truthy value
+		if (success) {
+			clearForm();
+		}
+	};
 
 	useEffect(() => {
 		dispatch(fetchImageComments(image.id));
@@ -29,9 +43,24 @@ const ImageContainer = ({ image }) => {
 					<p>All Comments</p>
 					{comments.map((comment) =>
 						comment.image_id === image.id ? (
-							<p>{comment.content}</p>
+							<p key={comment.id}>
+								<b>{comment.user}</b>
+								<span> </span>
+								<span>{comment.content}</span>
+							</p>
 						) : null
 					)}
+				</div>
+				<div>
+					<form onSubmit={handleSubmit}>
+						<textarea
+							value={comment}
+							placeholder="Add a comment..."
+							onChange={(e) => {
+								setComment(e.target.value);
+							}}></textarea>
+						<button>Post</button>
+					</form>
 				</div>
 				{user_id === image.user_id ? (
 					<button
