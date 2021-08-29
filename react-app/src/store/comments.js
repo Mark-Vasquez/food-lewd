@@ -32,14 +32,14 @@ const deleteUserComment = (comment_id) => ({
 
 // Thunk to post a comment
 export const postImageComment = (content, image_id) => async (dispatch) => {
-	console.log("CUMHEREE", content);
 	const res = await fetch(`/api/comments/image/${image_id}`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
 		// turn body into json because it expects it
-		body: JSON.stringify({ content }),
+		// body of request key NEEDS to match the wtform key to populate properly
+		body: JSON.stringify({ content: content }),
 	});
 
 	if (res.ok) {
