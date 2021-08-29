@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import Image, User, db  # Import Image model
 from app.forms import ImageSubmitForm  # Import Image form class
@@ -26,12 +26,12 @@ def upload_image():
 
     # getting image from the request
     if "img" not in request.files:
-        return {"errors": "image required"}, 400
+        return jsonify(["Image required!"]), 400
 
     image = request.files["img"]
 
     if not allowed_file(image.filename):
-        return {"errors": "file type not permitted"}, 400
+        return jsonify(["File type not permitted"]), 400
 
     image.filename = get_unique_filename(image.filename)
 
@@ -64,9 +64,15 @@ def upload_image():
         # Set id as the key so value in state doesn't get doubled up
         # with the images from the GET route state (match the return structure)
         return {new_image.id: new_image.to_dict()}
+    else:
+        errors = form.errors
+        return jsonify([f'{field_key.capitalize()}: {error}'
+                        for field_key in errors
+                        for error in errors[field_key]]), 400
+
+        # View all images by a current user
 
 
-# View all images by a current user
 @image_routes.route("/user", methods=["GET"])
 @login_required
 def user_images():

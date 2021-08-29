@@ -7,6 +7,6 @@ from wtforms.validators import Length
 class ImageSubmitForm(FlaskForm):
     # variable has to match key of json object body
     img = FileField("img", validators=[
-                    FileRequired(message='Image submisson required'), FileAllowed(['png', 'jpeg', 'jpg'], message='Image files only!')])
+        FileRequired(message='Submisson required'), FileAllowed(['png', 'jpeg', 'jpg'], message='Image files only')])
     caption = TextAreaField("Caption", validators=[
                             Length(max=200, message='200 character limit.')])

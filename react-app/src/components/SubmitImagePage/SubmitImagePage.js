@@ -14,16 +14,22 @@ const SubmitImagePage = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setImageLoading(true);
-		const res = await dispatch(sendImage(image, caption));
-
-		if (res.ok) {
+		const success = await dispatch(sendImage(image, caption));
+		// looking for a truthy value
+		if (success) {
 			setImageLoading(false);
 			history.push("/images");
 		} else {
 			setImageLoading(false);
-
-			//errors here
 		}
+		// if (res.ok) {
+		// 	setImageLoading(false);
+		// 	history.push("/images");
+		// } else {
+		// 	setImageLoading(false);
+
+		// 	//errors here
+		// }
 	};
 
 	return (

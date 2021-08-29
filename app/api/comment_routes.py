@@ -25,7 +25,7 @@ def post_comment(image_id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         comment = Comment(
-            content=form.data["content"],
+            content=form.data["comment"],
             user_id=current_user.id,
             image_id=image_id,
         )
