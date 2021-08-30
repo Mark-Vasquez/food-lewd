@@ -1,3 +1,5 @@
+import { setErrors } from "./errors";
+
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
@@ -13,6 +15,7 @@ const removeUser = () => ({
 
 const initialState = { user: null };
 
+// Authenticate a user thunk
 export const authenticate = () => async (dispatch) => {
 	const response = await fetch("/api/auth/", {
 		headers: {
@@ -29,6 +32,7 @@ export const authenticate = () => async (dispatch) => {
 	}
 };
 
+// Login thunk
 export const login = (email, password) => async (dispatch) => {
 	const response = await fetch("/api/auth/login", {
 		method: "POST",
@@ -40,21 +44,19 @@ export const login = (email, password) => async (dispatch) => {
 			password,
 		}),
 	});
-
+	// data from res is either data you want(200) or errors(401)
+	const data = await response.json();
 	if (response.ok) {
-		const data = await response.json();
 		dispatch(setUser(data));
 		return null;
 	} else if (response.status < 500) {
-		const data = await response.json();
-		if (data.errors) {
-			return data.errors;
-		}
+		dispatch(setErrors(data));
 	} else {
 		return ["An error occurred. Please try again."];
 	}
 };
 
+// Logout thunk
 export const logout = () => async (dispatch) => {
 	const response = await fetch("/api/auth/logout", {
 		headers: {
@@ -67,32 +69,32 @@ export const logout = () => async (dispatch) => {
 	}
 };
 
-export const signUp = (username, email, password) => async (dispatch) => {
-	const response = await fetch("/api/auth/signup", {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify({
-			username,
-			email,
-			password,
-		}),
-	});
+// Signup thunk
+export const signUp =
+	(username, email, profile_img, password, repeatPassword) =>
+	async (dispatch) => {
+		const formData = new FormData();
+		formData.append("username", username);
+		formData.append("email", email);
+		formData.append("img", profile_img);
+		formData.append("password", password);
+		formData.append("confirm", repeatPassword);
 
-	if (response.ok) {
+		const response = await fetch("/api/auth/signup", {
+			method: "POST",
+			body: formData,
+		});
+
 		const data = await response.json();
-		dispatch(setUser(data));
-		return null;
-	} else if (response.status < 500) {
-		const data = await response.json();
-		if (data.errors) {
-			return data.errors;
+		if (response.ok) {
+			dispatch(setUser(data));
+			return "Success";
+		} else if (response.status < 500) {
+			dispatch(setErrors(data));
+		} else {
+			return ["An error occurred. Please try again."];
 		}
-	} else {
-		return ["An error occurred. Please try again."];
-	}
-};
+	};
 
 const sessionReducer = (state = initialState, action) => {
 	switch (action.type) {
