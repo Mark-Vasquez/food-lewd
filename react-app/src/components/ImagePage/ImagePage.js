@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { fetchImage, destroyImage } from "../../store/image";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchImageComments } from "../../store/comments";
+import { editComment, fetchImageComments } from "../../store/comments";
 import { postImageComment } from "../../store/comments";
 import Errors from "../Errors";
 
@@ -24,7 +24,7 @@ const ImagePage = () => {
 		setComment("");
 	};
 
-	const handleSubmit = async (e) => {
+	const handleCommentSubmit = async (e) => {
 		e.preventDefault();
 
 		const success = await dispatch(postImageComment(image.id, comment));
@@ -59,36 +59,36 @@ const ImagePage = () => {
 									<>
 										<button
 											value={comment.id}
+											// If edit button value equals commentID and clickedValue is truthy,
+											// meaning a textarea is showing, setClicked value to null
+											// which will unrender the textarea
 											onClick={(e) => {
-												{
-													console.log(
-														+e.target.value,
-														"targs",
-														+comment.id,
-														"commentid"
-													);
-												}
 												+e.target.value ===
 													+comment.id && clickedValue
 													? setClickedValue(null)
 													: setClickedValue(
 															e.target.value
 													  );
-												console.log(
-													clickedValue,
-													"clickedval"
-												);
 											}}>
 											Edit
 										</button>
-										<button
-											onClick={() =>
-												setClickedValue(null)
-											}>
-											X
-										</button>
 										{+clickedValue === +comment.id ? (
-											<form>
+											<form
+												onSubmit={async (e) => {
+													e.preventDefault();
+
+													const success =
+														await dispatch(
+															editComment(
+																comment.id,
+																commentEdit
+															)
+														);
+
+													if (success) {
+														setClickedValue(null);
+													}
+												}}>
 												<textarea
 													value={commentEdit}
 													placeholder="Edit a comment..."
@@ -97,6 +97,7 @@ const ImagePage = () => {
 															e.target.value
 														);
 													}}></textarea>
+												<button>Submit</button>
 											</form>
 										) : null}
 									</>
@@ -106,7 +107,7 @@ const ImagePage = () => {
 					)}
 				</div>
 				<div>
-					<form onSubmit={handleSubmit}>
+					<form onSubmit={handleCommentSubmit}>
 						<textarea
 							value={comment}
 							placeholder="Add a comment..."
