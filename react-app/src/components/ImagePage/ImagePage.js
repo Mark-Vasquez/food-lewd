@@ -27,7 +27,7 @@ const ImagePage = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		const success = await dispatch(postImageComment(comment, image.id));
+		const success = await dispatch(postImageComment(image.id, comment));
 		// looking for a returned truthy value
 		if (success) {
 			clearForm();
@@ -60,26 +60,34 @@ const ImagePage = () => {
 										<button
 											value={comment.id}
 											onClick={(e) => {
-												setClickedValue(e.target.value);
-												setClickedEdit(!clickedEdit);
+												{
+													console.log(
+														+e.target.value,
+														"targs",
+														+comment.id,
+														"commentid"
+													);
+												}
+												+e.target.value ===
+													+comment.id && clickedValue
+													? setClickedValue(null)
+													: setClickedValue(
+															e.target.value
+													  );
+												console.log(
+													clickedValue,
+													"clickedval"
+												);
 											}}>
 											Edit
 										</button>
-										{console.log(
-											"1 clickedval",
-											clickedValue
-										)}
-										{console.log("2 commentID", comment.id)}
-										{console.log(
-											+clickedValue === comment.id
-										)}
-										{console.log("4  huhhhh", clickedEdit)}
-										{console.log(
-											"5  huhhhh",
-											clickedEdit === true
-										)}
-										{+clickedValue === +comment.id &&
-										clickedEdit === true ? (
+										<button
+											onClick={() =>
+												setClickedValue(null)
+											}>
+											X
+										</button>
+										{+clickedValue === +comment.id ? (
 											<form>
 												<textarea
 													value={commentEdit}
