@@ -18,6 +18,7 @@ const ImagePage = () => {
 	const [comment, setComment] = useState("");
 	const [commentEdit, setCommentEdit] = useState("");
 	const [clickedValue, setClickedValue] = useState(null);
+	const [clickedEdit, setClickedEdit] = useState(false);
 
 	const clearForm = () => {
 		setComment("");
@@ -58,20 +59,27 @@ const ImagePage = () => {
 									<>
 										<button
 											value={comment.id}
-											onClick={(e) =>
-												setClickedValue(e.target.value)
-											}>
+											onClick={(e) => {
+												setClickedValue(e.target.value);
+												setClickedEdit(!clickedEdit);
+											}}>
 											Edit
 										</button>
 										{console.log(
-											"clickedval",
+											"1 clickedval",
 											clickedValue
 										)}
-										{console.log("commentID", comment.id)}
+										{console.log("2 commentID", comment.id)}
 										{console.log(
 											+clickedValue === comment.id
 										)}
-										{+clickedValue === comment.id ? (
+										{console.log("4  huhhhh", clickedEdit)}
+										{console.log(
+											"5  huhhhh",
+											clickedEdit === true
+										)}
+										{+clickedValue === +comment.id &&
+										clickedEdit === true ? (
 											<form>
 												<textarea
 													value={commentEdit}
@@ -103,7 +111,7 @@ const ImagePage = () => {
 				</div>
 				{user_id === image?.user_id ? (
 					<button
-						onClick={async () => {
+						onClick={async (e) => {
 							await dispatch(destroyImage(image?.id));
 							// history.push("/profile");
 						}}>
