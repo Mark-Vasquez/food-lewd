@@ -22,7 +22,7 @@ const SignUpForm = () => {
 		e.preventDefault();
 		setImageLoading(true);
 		const success = await dispatch(
-			signUp(username, email, profileImage, password)
+			signUp(username, email, profileImage, password, repeatPassword)
 		);
 		if (success) {
 			setImageLoading(false);

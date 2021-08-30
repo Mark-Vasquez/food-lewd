@@ -71,12 +71,14 @@ export const logout = () => async (dispatch) => {
 
 // Signup thunk
 export const signUp =
-	(username, email, profile_img, password) => async (dispatch) => {
+	(username, email, profile_img, password, repeatPassword) =>
+	async (dispatch) => {
 		const formData = new FormData();
 		formData.append("username", username);
 		formData.append("email", email);
 		formData.append("img", profile_img);
 		formData.append("password", password);
+		formData.append("confirm", repeatPassword);
 
 		const response = await fetch("/api/auth/signup", {
 			method: "POST",

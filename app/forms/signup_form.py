@@ -29,4 +29,4 @@ class SignUpForm(FlaskForm):
     image = FileField("img")
     password = PasswordField('password', validators=[
                              InputRequired(), EqualTo('confirm', message='Passwords must match')])
-    confirm = PasswordField('Repeat Password')
+    confirm = PasswordField('confirm')
