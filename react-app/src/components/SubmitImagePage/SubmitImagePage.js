@@ -36,10 +36,10 @@ const SubmitImagePage = () => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<h1>Submit the food</h1>
-			<label className={styles.submit_image_label}>
-				Submit your Image!
-			</label>
 			<div>
+				<label className={styles.submit_image_label}>
+					Submit your Image!
+				</label>
 				<input
 					type="file"
 					accept="image/*"
