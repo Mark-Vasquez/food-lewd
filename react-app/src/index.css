@@ -1,1 +1,20 @@
 /* TODO Add site wide styles */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 14px;
+
+	font-family: "Roboto", sans-serif;
+	color: #e5e3df;
+	background-color: rgb(14, 15, 15);
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	min-height: 100%;
+}
