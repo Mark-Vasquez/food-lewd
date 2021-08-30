@@ -77,7 +77,7 @@ export const editComment = (comment_id, content) => async (dispatch) => {
 		// body of request key NEEDS to match the wtform key to populate properly
 		body: JSON.stringify({ comment: content }),
 	});
-
+	// 'comment' will either be the edited comment (200) or array of errors (400)
 	const comment = await res.json();
 	if (res.ok) {
 		dispatch(editUserComment(comment));
@@ -87,11 +87,26 @@ export const editComment = (comment_id, content) => async (dispatch) => {
 	}
 };
 
+// Thunk to delete comment
+export const destroyComment = (comment_id) => async (dispatch) => {
+	const res = await fetch(`/api/comments/${comment_id}`, {
+		method: "DELETE",
+		headers: { "Content-Type": "application/json" },
+	});
+	if (res.ok) {
+		dispatch(deleteUserComment(comment_id));
+		// just want to return a truthy value
+		return "Successfully Deleted";
+	} else {
+		const errorMessages = await res.json();
+		dispatch(setErrors(errorMessages));
+	}
+};
+
 const initialState = {};
 
 // Create a Reducer
 const commentReducer = (state = initialState, action) => {
-	const newState = { ...state };
 	switch (action.type) {
 		case POST_COMMENT:
 			return {
@@ -108,6 +123,10 @@ const commentReducer = (state = initialState, action) => {
 				...state,
 				...action.edited_comment,
 			};
+		case DELETE_USER_COMMENT:
+			const newState = { ...state };
+			delete newState[action.comment_id];
+			return newState;
 		default:
 			return state;
 	}

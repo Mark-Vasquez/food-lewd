@@ -1,3 +1,4 @@
+import re
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import Comment, db  # Import Comment model
@@ -68,5 +69,21 @@ def edit_comment(comment_id):
             return jsonify([f'{field_key.capitalize()}: {error}'
                             for field_key in errors
                             for error in errors[field_key]]), 400
+    else:
+        return jsonify(["You are not the owner of this comment"]), 403
+
+
+# Delete a comment in the database
+@comment_routes.route("/<int:comment_id>", methods=["DELETE"])
+@login_required
+def delete_comment(comment_id):
+    comment = Comment.query.get(comment_id)
+    comment_dict = comment.to_dict()
+
+    # Backend Security
+    if current_user.id == comment_dict['user_id']:
+        db.session.delete(comment)
+        db.session.commit()
+        return f"Comment ID {comment_dict['id']} has been deleted by {comment_dict['user']}"
     else:
         return jsonify(["You are not the owner of this comment"]), 403

@@ -102,6 +102,10 @@ export const destroyImage = (image_id) => async (dispatch) => {
 	});
 	if (res.ok) {
 		dispatch(deleteImage(image_id));
+		return "Successfully Deleted";
+	} else {
+		const errorMessages = await res.json();
+		dispatch(setErrors(errorMessages));
 	}
 };
 
