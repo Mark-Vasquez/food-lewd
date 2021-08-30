@@ -17,6 +17,8 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
+# Is requested when any page loads
+
 
 @auth_routes.route('/')
 def authenticate():
@@ -42,7 +44,15 @@ def login():
         user = User.query.filter(User.email == form.data['email']).first()
         login_user(user)
         return user.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    else:
+        # Anything returned from backend can be part of
+        # the redux state when returned, including errors
+        errors = form.errors
+        # when not returning dictionary, need to tell flask to
+        # turn this list into JSON with jsonify
+        return jsonify([f'{field_key.capitalize()}: {error}'
+                        for field_key in errors
+                        for error in errors[field_key]]), 401
 
 
 @auth_routes.route('/logout')
