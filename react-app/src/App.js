@@ -12,10 +12,12 @@ import SubmitImagePage from "./components/SubmitImagePage";
 import ProfilePage from "./components/ProfilePage";
 import ImagePage from "./components/ImagePage";
 import { authenticate } from "./store/session";
+import { useSelector } from "react-redux";
 
 function App() {
 	const [loaded, setLoaded] = useState(false);
 	const dispatch = useDispatch();
+	const user = useSelector((state) => state.session.user?.id);
 
 	// Runs to check if user is logged in or not
 	useEffect(() => {
@@ -34,7 +36,7 @@ function App() {
 			{/* <NavBar /> */}
 			<Switch>
 				<Route path="/" exact={true}>
-					<LoginForm />
+					{user ? <ImagesPage /> : <LoginForm />}
 				</Route>
 				<Route path="/sign-up" exact={true}>
 					<SignUpForm />
