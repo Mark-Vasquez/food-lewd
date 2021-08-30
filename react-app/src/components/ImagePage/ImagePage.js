@@ -16,6 +16,8 @@ const ImagePage = () => {
 	const user_id = useSelector((state) => state.session.user.id);
 	const comments = useSelector((state) => Object.values(state.comments));
 	const [comment, setComment] = useState("");
+	const [commentEdit, setCommentEdit] = useState("");
+	const [clickedValue, setClickedValue] = useState(null);
 
 	const clearForm = () => {
 		setComment("");
@@ -51,6 +53,38 @@ const ImagePage = () => {
 								<b>{comment.user}</b>
 								<span> </span>
 								<span>{comment.content}</span>
+								<span> </span>
+								{user_id === comment.user_id ? (
+									<>
+										<button
+											value={comment.id}
+											onClick={(e) =>
+												setClickedValue(e.target.value)
+											}>
+											Edit
+										</button>
+										{console.log(
+											"clickedval",
+											clickedValue
+										)}
+										{console.log("commentID", comment.id)}
+										{console.log(
+											+clickedValue === comment.id
+										)}
+										{+clickedValue === comment.id ? (
+											<form>
+												<textarea
+													value={commentEdit}
+													placeholder="Edit a comment..."
+													onChange={(e) => {
+														setCommentEdit(
+															e.target.value
+														);
+													}}></textarea>
+											</form>
+										) : null}
+									</>
+								) : null}
 							</p>
 						) : null
 					)}

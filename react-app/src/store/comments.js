@@ -3,7 +3,6 @@ import { setErrors } from "./errors";
 // Define Action Types as Constants
 const POST_COMMENT = "comment/postComments";
 const GET_IMAGE_COMMENTS = "comment/getImageComments";
-// const GET_USER_COMMENTS = "comment/getUserComments";
 const EDIT_USER_COMMENT = "comment/editUserComment";
 const DELETE_USER_COMMENT = "comment/deleteUserComment";
 
@@ -16,11 +15,6 @@ const getImageComments = (comments) => ({
 	type: GET_IMAGE_COMMENTS,
 	comments,
 });
-
-// const getUserComments = (comments) => ({
-// 	type: GET_USER_COMMENTS,
-// 	comments,
-// });
 
 const editUserComment = (edited_comment) => ({
 	type: EDIT_USER_COMMENT,
@@ -72,6 +66,27 @@ export const fetchImageComments = (image_id) => async (dispatch) => {
 	}
 };
 
+// Thunk to edit comments
+export const editComment = (comment_id, content) => async (dispatch) => {
+	const res = await fetch(`/api/comments/${comment_id}`, {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		// turn body into json because it expects it
+		// body of request key NEEDS to match the wtform key to populate properly
+		body: JSON.stringify({ comment: content }),
+	});
+
+	const comment = await res.json();
+	if (res.ok) {
+		dispatch(editUserComment(comment));
+		return "Success";
+	} else {
+		dispatch(setErrors(comment));
+	}
+};
+
 const initialState = {};
 
 // Create a Reducer
@@ -87,6 +102,11 @@ const commentReducer = (state = initialState, action) => {
 			return {
 				...state,
 				...action.comments,
+			};
+		case EDIT_USER_COMMENT:
+			return {
+				...state,
+				...action.edited_comment,
 			};
 		default:
 			return state;
