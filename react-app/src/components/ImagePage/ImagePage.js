@@ -4,7 +4,11 @@ import { useParams } from "react-router-dom";
 import { fetchImage, destroyImage } from "../../store/image";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { editComment, fetchImageComments } from "../../store/comments";
+import {
+	destroyComment,
+	editComment,
+	fetchImageComments,
+} from "../../store/comments";
 import { postImageComment } from "../../store/comments";
 import Errors from "../Errors";
 
@@ -71,6 +75,14 @@ const ImagePage = () => {
 													  );
 											}}>
 											Edit
+										</button>
+										<button
+											onClick={async (e) =>
+												await dispatch(
+													destroyComment(comment?.id)
+												)
+											}>
+											Delete Comment
 										</button>
 										{+clickedValue === +comment.id ? (
 											<form
