@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LogoutButton from "../../components/auth/LogoutButton";
 import styles from "./Navbar.module.css";
 import { useSelector } from "react-redux";
