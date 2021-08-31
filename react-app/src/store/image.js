@@ -38,7 +38,7 @@ export const sendImage = (image, caption) => async (dispatch) => {
 	const formData = new FormData();
 	formData.append("img", image);
 	formData.append("caption", caption);
-
+	console.log(formData, "formmmms");
 	const res = await fetch("/api/images/user", {
 		method: "POST",
 		body: formData,
@@ -49,7 +49,7 @@ export const sendImage = (image, caption) => async (dispatch) => {
 		dispatch(postImage(imagePost));
 		return "Success";
 	} else {
-		dispatch(setErrors(imagePost));
+		// dispatch(setErrors(imagePost));
 	}
 };
 
