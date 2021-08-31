@@ -35,7 +35,12 @@ const LoginForm = () => {
 
 	return (
 		<>
-			<div className={styles.login_page_container}>
+			<div className={styles.login_page_wrapper}>
+				<article className={styles.login_page_container}>
+					<div className={styles.splash_image}></div>
+					<div className={styles.text_field_wrapper}></div>
+				</article>
+
 				<form onSubmit={onLogin}>
 					<div>
 						<Errors />
@@ -63,7 +68,7 @@ const LoginForm = () => {
 					</div>
 				</form>
 			</div>
-			<Footer />
+			<Footer className={styles.login_footer} />
 		</>
 	);
 };
