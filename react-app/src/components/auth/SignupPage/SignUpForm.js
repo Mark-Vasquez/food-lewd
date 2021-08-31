@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { signUp } from "../../store/session";
-import Errors from "../Errors";
-import { setErrors } from "../../store/errors";
+import { signUp } from "../../../store/session";
+import Errors from "../../Errors";
 import { NavLink } from "react-router-dom";
 
 const SignUpForm = () => {
