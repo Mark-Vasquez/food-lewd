@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import LogoutButton from "../LogoutButton";
 import styles from "./Navbar.module.css";
 import { useSelector } from "react-redux";
+import homeLogo from "../../assets/images/icons8-home-48.png";
 
 const NavBar = () => {
 	const user_pic = useSelector((state) => state?.session.user.profile_img);
@@ -20,23 +21,25 @@ const NavBar = () => {
 				</div>
 				<div className={styles.future_searchbar}></div>
 				<div className={styles.right_icons_wrapper}>
-					<div className={styles.right_icons_container}>
-						<Link to="/" exact={true} activeClassName="active">
-							Home
-						</Link>
-					</div>
-					<div>
-						<LogoutButton />
-					</div>
-					<div>
-						<Link to="/profile">
-							<img
-								className={styles.profile_wrap}
-								src={user_pic}
-								alt="profile pic"
-							/>
-						</Link>
-					</div>
+					<Link to="/" exact={true} activeClassName="active">
+						<img
+							className={styles.homelogo}
+							src={homeLogo}
+							alt="home button"
+						/>
+					</Link>
+				</div>
+				<div>
+					<LogoutButton />
+				</div>
+				<div>
+					<Link to="/profile">
+						<img
+							className={styles.profile_pic}
+							src={user_pic}
+							alt="profile pic"
+						/>
+					</Link>
 				</div>
 			</div>
 
