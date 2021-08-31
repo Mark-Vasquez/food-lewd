@@ -9,7 +9,6 @@ import { NavLink } from "react-router-dom";
 const SignUpForm = () => {
 	const history = useHistory();
 	const dispatch = useDispatch();
-	const [errors, setErrors] = useState([]);
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
