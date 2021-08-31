@@ -5,13 +5,17 @@ import { login } from "../../../store/session";
 import Errors from "../../Errors";
 import Footer from "../../Footer";
 import styles from "./LoginForm.module.css";
+import { setErrors } from "../../../store/errors";
 
 const LoginForm = () => {
-	const [errors, setErrors] = useState([]);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const user = useSelector((state) => state.session.user);
 	const dispatch = useDispatch();
+
+	const loginDemo = async () => {
+		await dispatch(login("demo@aa.io", "password"));
+	};
 
 	const onLogin = async (e) => {
 		e.preventDefault();
@@ -79,6 +83,14 @@ const LoginForm = () => {
 										OR
 									</div>
 									<div className={styles.right_or}></div>
+								</div>
+								<div
+									onClick={loginDemo}
+									className={styles.demo_container}>
+									<div className={styles.demo_icon}></div>
+									<span className={styles.demo_action}>
+										Log in as Demo User
+									</span>
 								</div>
 							</form>
 							<Errors />

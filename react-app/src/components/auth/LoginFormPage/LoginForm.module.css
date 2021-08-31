@@ -144,3 +144,29 @@
 	font-weight: bolder;
 	color: rgb(161, 152, 140);
 }
+
+.demo_container {
+	width: 268px;
+	height: 20px;
+	margin: 8px 40px 8px 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.demo_icon {
+	width: 25px;
+	height: 25px;
+	background-image: url(../../../assets/images/icons8-user-60.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-right: 4px;
+}
+
+.demo_action {
+	margin-left: 5px;
+	color: rgb(138, 172, 206);
+	font-weight: 900;
+}
