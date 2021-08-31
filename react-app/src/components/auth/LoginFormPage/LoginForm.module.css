@@ -13,7 +13,7 @@
 	max-width: 935px;
 	padding-bottom: 32px;
 	width: 100%;
-	background-color: tomato;
+	/* background-color: tomato; */
 	height: 778px;
 	vertical-align: baseline;
 	align-items: center;
@@ -22,8 +22,8 @@
 .splash_image {
 	background-image: url(../../../assets/images/slashio-photography-uMYxldWYSZk-unsplash.jpg);
 	background-size: 454px 618px;
-	margin-left: 15px;
-	margin-right: 35px;
+	margin-left: 8px;
+	margin-right: 15px;
 	height: 618px;
 	width: 454px;
 	background-size: contain;
@@ -32,4 +32,39 @@
 }
 
 .text_field_wrapper {
+	display: flex;
+	justify-content: center;
+	margin-top: 12px;
+	width: 350px;
+	height: 717px;
+	flex-direction: column;
+	position: relative;
+	margin-right: 40px;
+	margin-left: 15px;
+}
+
+.field_container {
+	background-color: black;
+	border: 1px solid rgb(122, 113, 100);
+	border-radius: 1px;
+	margin: 0 0 10px;
+	padding: 10px 0;
+	display: flex;
+	flex-direction: column;
+	width: 350px;
+	height: 380px;
+}
+
+.foodlewd_header {
+	font-family: "Dancing Script", cursive;
+	margin: 22px auto 12px;
+	font-size: 48px;
+}
+
+.form_wrapper {
+	margin-bottom: 10px;
+	max-width: 350px;
+	width: 100%;
+	height: 263px;
+	background-color: coral;
 }
