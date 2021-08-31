@@ -6,6 +6,7 @@ import Errors from "../../Errors";
 import Footer from "../../Footer";
 import styles from "./LoginForm.module.css";
 import { setErrors } from "../../../store/errors";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
 	const [email, setEmail] = useState("");
@@ -94,6 +95,12 @@ const LoginForm = () => {
 								</div>
 							</form>
 							<Errors />
+						</div>
+						<div className={styles.sign_up_container}>
+							<p>Don't have an account?</p>
+							<Link className={styles.sign_up_text} to="/sign-up">
+								Sign up
+							</Link>
 						</div>
 					</div>
 					<div className={styles.error_container}></div>
