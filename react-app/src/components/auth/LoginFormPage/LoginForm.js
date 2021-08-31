@@ -108,7 +108,7 @@ const LoginForm = () => {
 					<div className={styles.error_container}></div>
 				</article>
 			</div>
-			<Footer className={styles.login_footer} />
+			<Footer />
 		</>
 	);
 };
