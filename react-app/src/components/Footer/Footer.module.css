@@ -1,3 +1,84 @@
 .footer_wrapper {
+	background-color: turquoise;
 	padding: 0 16px;
+	height: 151px;
+	position: relative;
+	display: flex;
+	align-items: stretch;
+}
+
+.footer_container {
+	margin-bottom: 52px;
+	background-color: tomato;
+	height: 99px;
+	width: 100%;
+	display: flex;
+	flex: none;
+	align-items: stretch;
+	justify-content: flex-start;
+	align-content: stretch;
+	flex-direction: column;
+	position: relative;
+}
+
+.about_links_container {
+	background-color: thistle;
+	margin-top: 24px;
+	height: 42px;
+	width: 100%;
+}
+
+.name_container {
+	background-color: yellowgreen;
+	height: 9px;
+	margin: 12px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.name_text {
+	color: rgb(140, 130, 115);
+}
+
+.about_links_inner_top {
+	display: flex;
+	flex-wrap: wrap;
+	flex: none;
+	justify-content: center;
+	align-items: center;
+	height: 21px;
+}
+
+.linkedin_container {
+	margin: 0 8px;
+	margin-bottom: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.linked_in_text {
+	text-decoration: none;
+	color: rgb(140, 130, 115);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.linked_in_text:hover {
+	font-weight: 600;
+}
+
+.linked_in_logo {
+	height: 29px;
+	width: 29px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-left: 7px;
+}
+
+.linked_in_logo:hover {
+	background-color: yellowgreen;
 }

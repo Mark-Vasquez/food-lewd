@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../../store/session";
 import Errors from "../../Errors";
+import Footer from "../../Footer";
+import styles from "./LoginForm.module.css";
 
 const LoginForm = () => {
 	const [errors, setErrors] = useState([]);
@@ -32,32 +34,37 @@ const LoginForm = () => {
 	}
 
 	return (
-		<form onSubmit={onLogin}>
-			<div>
-				<Errors />
+		<>
+			<div className={styles.login_page_container}>
+				<form onSubmit={onLogin}>
+					<div>
+						<Errors />
+					</div>
+					<div>
+						<label htmlFor="email">Email</label>
+						<input
+							name="email"
+							type="text"
+							placeholder="Email"
+							value={email}
+							onChange={updateEmail}
+						/>
+					</div>
+					<div>
+						<label htmlFor="password">Password</label>
+						<input
+							name="password"
+							type="password"
+							placeholder="Password"
+							value={password}
+							onChange={updatePassword}
+						/>
+						<button type="submit">Login</button>
+					</div>
+				</form>
 			</div>
-			<div>
-				<label htmlFor="email">Email</label>
-				<input
-					name="email"
-					type="text"
-					placeholder="Email"
-					value={email}
-					onChange={updateEmail}
-				/>
-			</div>
-			<div>
-				<label htmlFor="password">Password</label>
-				<input
-					name="password"
-					type="password"
-					placeholder="Password"
-					value={password}
-					onChange={updatePassword}
-				/>
-				<button type="submit">Login</button>
-			</div>
-		</form>
+			<Footer />
+		</>
 	);
 };
 

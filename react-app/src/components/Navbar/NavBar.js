@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import homeLogo from "../../assets/images/icons8-home-48.png";
 
 const NavBar = () => {
-	const userPic = useSelector((state) => state?.session.user.profile_img);
+	const userPic = useSelector((state) => state?.session?.user?.profile_img);
 	const userName = useSelector((state) => state?.session?.user?.username);
 
 	return (
