@@ -7,7 +7,6 @@ import homeLogo from "../../assets/images/icons8-home-48.png";
 
 const NavBar = () => {
 	const userPic = useSelector((state) => state?.session.user.profile_img);
-	console.log("pikachu", userPic);
 	const userName = useSelector((state) => state?.session?.user?.username);
 
 	return (
