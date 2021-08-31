@@ -41,39 +41,50 @@ const LoginForm = () => {
 					<div className={styles.text_field_wrapper}>
 						<div className={styles.field_container}>
 							<h1 className={styles.foodlewd_header}>Foodlewd</h1>
-							<div className={styles.form_wrapper}>
-								<form onSubmit={onLogin}>
-									<div>
-										<Errors />
+							<form
+								className={styles.form_form}
+								onSubmit={onLogin}>
+								<div>
+									<input
+										className={styles.email_input}
+										name="email"
+										type="text"
+										placeholder="Email"
+										value={email}
+										required={true}
+										onChange={updateEmail}
+									/>
+								</div>
+								<div>
+									<input
+										className={styles.password_input}
+										name="password"
+										type="password"
+										placeholder="Password"
+										value={password}
+										required={true}
+										onChange={updatePassword}
+									/>
+								</div>
+								<div>
+									<button
+										className={styles.login_button}
+										type="submit">
+										Log In
+									</button>
+								</div>
+								<div className={styles.or_block}>
+									<div className={styles.left_or}></div>
+									<div className={styles.or_block_text}>
+										OR
 									</div>
-									<div>
-										<label htmlFor="email">Email</label>
-										<input
-											name="email"
-											type="text"
-											placeholder="Email"
-											value={email}
-											onChange={updateEmail}
-										/>
-									</div>
-									<div>
-										<label htmlFor="password">
-											Password
-										</label>
-										<input
-											name="password"
-											type="password"
-											placeholder="Password"
-											value={password}
-											onChange={updatePassword}
-										/>
-										<button type="submit">Login</button>
-									</div>
-								</form>
-							</div>
+									<div className={styles.right_or}></div>
+								</div>
+							</form>
+							<Errors />
 						</div>
-						<div className={styles.error_container}></div>
 					</div>
+					<div className={styles.error_container}></div>
 				</article>
 			</div>
 			<Footer className={styles.login_footer} />
