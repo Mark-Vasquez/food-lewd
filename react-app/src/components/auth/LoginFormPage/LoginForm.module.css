@@ -179,12 +179,21 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-right: 3px;
+	margin-bottom: 10px;
 }
 
 .sign_up_text {
 	text-decoration: none;
 	color: rgb(32, 167, 255);
 	font-weight: 700;
-	margin-left: 2px;
+	margin-left: 4px;
+}
+
+.hidden_error_div {
+	width: 350px;
+	height: 85px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

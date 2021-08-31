@@ -94,13 +94,15 @@ const LoginForm = () => {
 									</span>
 								</div>
 							</form>
-							<Errors />
 						</div>
 						<div className={styles.sign_up_container}>
 							<p>Don't have an account?</p>
 							<Link className={styles.sign_up_text} to="/sign-up">
 								Sign up
 							</Link>
+						</div>
+						<div className={styles.hidden_error_div}>
+							<Errors />
 						</div>
 					</div>
 					<div className={styles.error_container}></div>
