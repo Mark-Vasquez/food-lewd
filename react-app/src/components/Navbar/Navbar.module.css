@@ -1,0 +1,84 @@
+.navbar_container {
+	background-color: black;
+	border-bottom: 1px solid rgb(122, 113, 100);
+	height: 54px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+}
+
+.navbar_contents {
+	display: flex;
+	justify-content: space-between;
+	max-width: 975px;
+	padding: 0 20px;
+	height: 54px;
+	width: 100%;
+	align-items: center;
+}
+
+.foodlewd_container {
+	display: flex;
+	min-width: 40px;
+	width: 360px;
+	align-items: stretch;
+}
+
+.foodlewd_logo {
+	text-decoration: none;
+	font-family: "Dancing Script", cursive;
+	color: #e5e3df;
+	font-size: 33px;
+	font-weight: 600;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	display: flex;
+	align-items: stretch;
+	flex-direction: column;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.future_searchbar {
+	height: 28px;
+	width: 215px;
+	min-width: 125px;
+	/* border-color: rgb(140, 130, 115); */
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	vertical-align: baseline;
+	align-items: center;
+}
+
+.right_icons_wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 360px;
+}
+
+.welcome_message {
+	font-size: 18px;
+}
+
+.homelogo {
+	width: 28px;
+	height: 28px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-left: 28px;
+}
+
+.profile_pic {
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-left: 28px;
+}

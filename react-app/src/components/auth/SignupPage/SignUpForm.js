@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { signUp } from "../../store/session";
-import Errors from "../Errors";
-import { setErrors } from "../../store/errors";
+import { signUp } from "../../../store/session";
+import Errors from "../../Errors";
+import { NavLink } from "react-router-dom";
 
 const SignUpForm = () => {
 	const history = useHistory();
 	const dispatch = useDispatch();
-	const [errors, setErrors] = useState([]);
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -58,6 +57,9 @@ const SignUpForm = () => {
 				<Errors />
 			</div>
 			<div>
+				<NavLink to="/login" exact={true} activeClassName="active">
+					Login
+				</NavLink>
 				<label>User Name</label>
 				<input
 					type="text"

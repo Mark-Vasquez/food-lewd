@@ -4,6 +4,7 @@ import { fetchAllImages, destroyImage } from "../../store/image";
 import { fetchImageComments } from "../../store/comments";
 import { Link } from "react-router-dom";
 import ImageContainer from "./ImageContainer/ImageContainer";
+import Navbar from "../Navbar";
 
 const ImagesPage = () => {
 	const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const ImagesPage = () => {
 	}, [dispatch]);
 	return (
 		<>
+			<Navbar />
 			<h1>Images Page</h1>
 			{images.reverse().map((image) => (
 				<div key={image.id}>
