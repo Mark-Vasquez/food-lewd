@@ -1,12 +1,12 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LogoutButton from "../../components/auth/LogoutButton";
 import styles from "./Navbar.module.css";
 import { useSelector } from "react-redux";
 import homeLogo from "../../assets/images/icons8-home-48.png";
 
 const NavBar = () => {
-	const userPic = useSelector((state) => state?.session.user.profile_img);
+	const userPic = useSelector((state) => state?.session?.user?.profile_img);
 	const userName = useSelector((state) => state?.session?.user?.username);
 
 	return (

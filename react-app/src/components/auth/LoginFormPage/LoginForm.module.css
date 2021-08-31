@@ -1,0 +1,5 @@
+.login_page_container {
+	overflow: auto;
+	/* 100% of root's height */
+	height: 100%;
+}
