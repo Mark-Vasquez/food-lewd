@@ -1,5 +1,6 @@
 import styles from "./Footer.module.css";
 import linkedinLogo from "../../assets/images/icons8-linkedin-64.png";
+import githubLogo from "../../assets/images/icons8-github-60.png";
 
 const Footer = () => {
 	return (
@@ -21,13 +22,22 @@ const Footer = () => {
 						</div>
 						<div className={styles.github_container}>
 							{" "}
-							<a href=""></a>
+							<a
+								className={styles.github_text}
+								href="https://github.com/Mark-Vasquez">
+								GitHub
+								<img
+									className={styles.github_logo}
+									src={githubLogo}
+									alt="GitHub"
+								/>
+							</a>
 						</div>
 					</div>
 				</div>
 				<div className={styles.name_container}>
 					<span className={styles.name_text}>
-						Foodlewd developed by <b>Mark Vasquez</b>
+						Foodlewd developed by Mark Vasquez
 					</span>
 				</div>
 			</div>
