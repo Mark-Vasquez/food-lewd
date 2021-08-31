@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import styles from "./Errors.module.css";
 
 const Errors = () => {
 	const errors = useSelector((state) => state.errors);
@@ -6,7 +7,9 @@ const Errors = () => {
 	return (
 		<div>
 			{errors?.map((error, ind) => (
-				<div key={ind}>{error}</div>
+				<div className={styles.error_div} key={ind}>
+					{error}
+				</div>
 			))}
 		</div>
 	);
