@@ -14,22 +14,37 @@
 	margin: 0 auto;
 	display: flex;
 	justify-content: center;
-	flex-direction: column;
-	/* background-color: turquoise; */
+	background-color: turquoise;
 }
 
 .left_images_container {
 	width: 614px;
 	height: 100%;
 	margin-right: 28px;
+	background-color: greenyellow;
 }
 
 .right_info_container {
-	position: absolute;
-	right: 0;
-	top: 30px;
+	position: sticky;
+	top: 84px;
 	height: 100vh;
+	right: 100px;
 	background-color: wheat;
 	margin-bottom: 30px;
 	width: 293px;
+	display: flex;
+	flex-direction: column;
+}
+
+.profile_name_container {
+	width: 293px;
+	height: 56px;
+	background-color: tomato;
+	margin-top: 18px;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.profile_logo_container {
 }

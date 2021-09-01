@@ -30,7 +30,13 @@ const ImagesPage = () => {
 							))}
 						</div>
 					</div>
-					<div className={styles.right_info_container}></div>
+					<div className={styles.right_info_container}>
+						<div className={styles.profile_name_container}>
+							<div
+								className={styles.profile_logo_container}></div>
+							<div className={styles.profile_name_contaner}></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</>
