@@ -13,7 +13,6 @@
 	max-width: 935px;
 	padding-bottom: 32px;
 	width: 100%;
-	/* background-color: tomato; */
 	height: 778px;
 	vertical-align: baseline;
 	align-items: center;
@@ -69,7 +68,6 @@
 	align-items: center;
 	margin-bottom: 10px;
 	max-width: 350px;
-	/* background-color: coral; */
 	margin-top: 24px;
 	align-items: center;
 }
@@ -77,29 +75,26 @@
 .email_input {
 	margin: 0 40px 6px;
 	border: 1px solid rgb(122, 113, 100);
-	padding: 0 4px;
 	width: 258px;
 	height: 36px;
 	background-color: rgb(14, 15, 15);
-	padding: 9px 0 7px 8px;
+	padding: 9px 0 9px 8px;
 	color: rgb(197, 194, 189);
 }
 
 .password_input {
 	margin: 0 40px 6px;
 	border: 1px solid rgb(122, 113, 100);
-	padding: 0 4px;
 	width: 258px;
 	height: 36px;
 	background-color: rgb(14, 15, 15);
-	padding: 9px 0 7px 8px;
+	padding: 9px 0 9px 8px;
 	color: rgb(197, 194, 189);
 }
 
 .login_button {
 	margin: 8px 40px;
 	border: 1px solid rgb(122, 113, 100);
-
 	width: 258px;
 	height: 30px;
 	background-color: rgba(2, 98, 161, 0.726);
@@ -107,6 +102,7 @@
 	padding: 4px 8 4px 8px;
 	color: rgb(232, 230, 227);
 	border-radius: 4px;
+	font-weight: 700;
 }
 
 .login_button:hover {
@@ -192,7 +188,6 @@
 .hidden_error_div {
 	width: 350px;
 	height: 85px;
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
