@@ -7,6 +7,7 @@
 	align-items: center;
 	justify-content: center;
 	position: fixed;
+	z-index: 1;
 }
 
 .navbar_contents {
@@ -22,7 +23,7 @@
 .foodlewd_container {
 	display: flex;
 	min-width: 40px;
-	width: 360px;
+	width: 300px;
 	align-items: stretch;
 }
 
@@ -57,11 +58,13 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	width: 360px;
+	width: 400px;
 }
 
 .welcome_message {
-	font-size: 18px;
+	font-size: 15px;
+	margin-left: 28px;
+	display: inline-block;
 }
 
 .homelogo {
@@ -70,10 +73,20 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
-	margin-left: 28px;
+	/* margin-left: 28px; */
 }
 
 .profile_pic {
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-left: 10px;
+}
+
+.upload_logo {
 	width: 28px;
 	height: 28px;
 	border-radius: 50%;

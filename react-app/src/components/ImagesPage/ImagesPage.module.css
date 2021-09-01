@@ -1,3 +1,202 @@
 .image_page_container {
 	padding-top: 54px;
+	/* display: flex; */
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/* background-color: tomato; */
+}
+
+.middle_scroll_wrapper {
+	position: relative;
+	padding-top: 30px;
+	width: 935px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+
+.left_images_container {
+	width: 614px;
+	height: 100%;
+	margin-right: 28px;
+}
+
+.right_info_container {
+	position: sticky;
+	top: 84px;
+	height: 100vh;
+	right: 100px;
+	margin-bottom: 30px;
+	width: 293px;
+	display: flex;
+	flex-direction: column;
+}
+
+.profile_name_container {
+	width: 293px;
+	height: 56px;
+	margin-top: 18px;
+	margin-bottom: 10px;
+	display: flex;
+	align-items: center;
+}
+
+.profile_logo_container {
+	height: 56px;
+	width: 56px;
+}
+
+.profile_pic {
+	width: 57px;
+	height: 57px;
+	border-radius: 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.user_name {
+	margin-left: 24px;
+}
+
+.user_name_link {
+	text-decoration: none;
+	color: #e5e3df;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+/* Finish after grading */
+/* .user_suggestion_container {
+	width: 293px;
+	height: 325px;
+	background-color: violet;
+	margin-bottom: 12px;
+}
+
+.suggestion_text_container {
+	width: 325px;
+	height: 19px;
+	padding: 4px 0;
+	margin-bottom: 12px;
+}
+
+.suggestion_text {
+	color: rgb(161, 152, 140);
+	font-weight: 600;
+	line-height: 18px;
+}
+
+.users_container {
+	width: 293px;
+	height: 256px;
+	background-color: yellow;
+	padding: 8px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.indiv_user_container {
+	padding: 8px 16px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+} */
+
+.mini_footer_container {
+	margin-top: 20px;
+	margin-bottom: 52px;
+	height: 99px;
+	width: 100%;
+	display: flex;
+	align-content: stretch;
+	flex-direction: column;
+	align-items: flex-start;
+
+	position: relative;
+}
+
+.about_links_container {
+	margin-top: 24px;
+	margin-bottom: 35px;
+	height: 42px;
+	width: 100%;
+}
+
+.name_container {
+	height: 9px;
+	margin: 12px 0;
+	display: flex;
+	margin-top: 0px;
+	position: relative;
+	left: 20px;
+}
+
+.name_text {
+	color: rgb(140, 130, 115);
+	font-size: 12px;
+}
+
+.about_links_inner_top {
+	flex: none;
+	height: 21px;
+	margin-bottom: 25px;
+}
+
+.linkedin_container {
+	margin-right: 8px;
+	margin-bottom: 25px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	left: 87px;
+}
+
+.linked_in_text {
+	text-decoration: none;
+	color: rgb(140, 130, 115);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 600;
+	font-size: 12px;
+}
+
+.linked_in_logo {
+	height: 20px;
+	width: 20px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-left: 7px;
+}
+
+.github_container {
+	margin-right: 8px;
+	margin-bottom: 8px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	left: 90px;
+}
+
+.github_text {
+	text-decoration: none;
+	color: rgb(140, 130, 115);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 600;
+	font-size: 12px;
+}
+
+.github_logo {
+	height: 24px;
+	width: 24px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-left: 7px;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../../store/session";
 import { Link } from "react-router-dom";
-import logoutLogo from "../../../assets/images/icons8-exit-64.png";
+import logoutLogo from "../../../assets/images/icons8-sign-out-50.png";
 import styles from "./LogoutButton.module.css";
 
 const LogoutButton = () => {
