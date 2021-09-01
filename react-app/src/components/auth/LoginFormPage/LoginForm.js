@@ -105,7 +105,6 @@ const LoginForm = () => {
 							<Errors />
 						</div>
 					</div>
-					<div className={styles.error_container}></div>
 				</article>
 			</div>
 			<Footer />
