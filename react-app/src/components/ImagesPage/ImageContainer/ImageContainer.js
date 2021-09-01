@@ -70,6 +70,13 @@ const ImageContainer = ({ image }) => {
 						<span className={styles.image_owner}>{image.user}</span>{" "}
 						<span>&nbsp;</span> <span>{image.caption}</span>
 					</div>
+					<div>
+						<Link
+							className={styles.user_name_link}
+							to={`/images/${image.id}`}>
+							View all comments
+						</Link>
+					</div>
 				</div>
 			</div>
 			<div>

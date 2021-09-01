@@ -63,7 +63,6 @@ export const logout = () => async (dispatch) => {
 			"Content-Type": "application/json",
 		},
 	});
-	console.log("JAKE", response);
 
 	if (response.ok) {
 		dispatch(removeUser());

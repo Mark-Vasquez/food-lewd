@@ -131,7 +131,7 @@ const imageReducer = (state = initialState, action) => {
 			};
 		case GET_IMAGE:
 			return {
-				...state,
+				// Not spreading the other images in, just want to render one
 				...action.image,
 			};
 		case DELETE_IMAGE:

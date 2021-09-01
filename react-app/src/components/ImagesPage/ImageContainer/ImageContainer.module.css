@@ -78,6 +78,7 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: stretch;
+	line-height: 19px;
 }
 
 .image_owner {
