@@ -62,9 +62,11 @@ const ImageContainer = ({ image }) => {
 						) : null}
 					</div>
 				</div>
+				<div className={styles.pic_wrapper}>
+					<img className={styles.pic} src={image.img} alt="posted" />
+				</div>
 			</div>
 			<div>
-				<img src={image.img} alt="" />
 				<h3>{image.user}</h3>
 				<p>{image.caption}</p>
 				<p>----Comment below-----</p>
