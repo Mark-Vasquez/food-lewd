@@ -11,6 +11,7 @@ const SubmitImagePage = () => {
 	const [image, setImage] = useState("");
 	const [imageLoading, setImageLoading] = useState(false);
 	const [caption, setCaption] = useState("");
+	const [photoSelected, setPhotoSelected] = useState(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -36,18 +37,22 @@ const SubmitImagePage = () => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<h1>Submit the food</h1>
-			<div>
-				<label className={styles.submit_image_label}>
-					Submit your Image!
+			<div className={styles.upload_div}>
+				<label className={styles.upload_button}>
+					{photoSelected
+						? "Photo Selected!"
+						: "Upload a profile picture"}
+					<input
+						className={styles.upload_button}
+						type="file"
+						accept="image/*"
+						onChange={(e) => {
+							const file = e.target.files[0];
+							setImage(file);
+							setPhotoSelected(true);
+						}}
+					/>
 				</label>
-				<input
-					type="file"
-					accept="image/*"
-					onChange={(e) => {
-						const file = e.target.files[0];
-						setImage(file);
-					}}
-				/>
 			</div>
 			<label className={styles.caption_label}>Caption This!</label>
 			<div>

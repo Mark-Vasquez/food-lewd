@@ -1,0 +1,30 @@
+.upload_div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+input[type="file"] {
+	display: none;
+}
+
+.upload_button {
+	margin: 8px 40px;
+	border: 1px solid rgb(93, 93, 93);
+	width: 268px;
+	height: 30px;
+	background-color: rgba(101, 105, 109, 0.726);
+	border: 1px solid transparent;
+	padding: 6px 8px 4px 8px;
+	color: rgb(232, 230, 227);
+	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 700;
+}
+
+.upload_button:hover {
+	background-color: rgba(51, 84, 117, 0.726);
+}
