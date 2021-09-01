@@ -65,6 +65,12 @@ const ImageContainer = ({ image }) => {
 				<div className={styles.pic_wrapper}>
 					<img className={styles.pic} src={image.img} alt="posted" />
 				</div>
+				<div className={styles.comments_container}>
+					<div className={styles.poster_caption_container}>
+						<span className={styles.image_owner}>{image.user}</span>{" "}
+						<span>&nbsp;</span> <span>{image.caption}</span>
+					</div>
+				</div>
 			</div>
 			<div>
 				<h3>{image.user}</h3>
