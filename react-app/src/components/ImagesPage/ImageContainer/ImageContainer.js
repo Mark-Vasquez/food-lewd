@@ -7,11 +7,13 @@ import { Link } from "react-router-dom";
 import styles from "./ImageContainer.module.css";
 import { useState } from "react";
 import Errors from "../../Errors";
+import trashButton from "../../../assets/images/icons8-trash-60.png";
 
 const ImageContainer = ({ image }) => {
 	const dispatch = useDispatch();
 	const user_id = useSelector((state) => state.session.user.id);
 	const comments = useSelector((state) => Object.values(state.comments));
+	// const userImage = useSelector((state) => state.)
 	const [comment, setComment] = useState("");
 
 	const clearForm = () => {
@@ -34,7 +36,20 @@ const ImageContainer = ({ image }) => {
 
 	return (
 		<>
-			<h1>Image</h1>
+			<div className={styles.image_container}>
+				<div className={styles.header_container}>
+					<div className={styles.image_post_icon_container}>
+						<img
+							className={styles.image_post_icon}
+							src={image.user_image}
+							alt="Poster"
+						/>
+					</div>
+					<div className={styles.image_post_username}>
+						{image.user}
+					</div>
+				</div>
+			</div>
 			<div>
 				<img src={image.img} alt="" />
 				<h3>{image.user}</h3>
@@ -69,10 +84,7 @@ const ImageContainer = ({ image }) => {
 						onClick={async () => {
 							await dispatch(destroyImage(image.id));
 						}}>
-						<img
-							src="https://www.cityofkyle.com/sites/default/files/styles/full_node_primary/public/imageattachments/utilitybilling/page/1235/ub_-_trash_can_image.jpg?itok=HDnp1PbF"
-							alt="trash bruh"
-						/>
+						<img src={trashButton} alt="trash bruh" />
 						tradh
 					</button>
 				) : null}
