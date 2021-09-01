@@ -26,7 +26,6 @@ const ImagesPage = () => {
 				<div className={styles.middle_scroll_wrapper}>
 					<div className={styles.left_images_container}>
 						<div>
-							<h1>Images Page</h1>
 							{images.reverse().map((image) => (
 								<div key={image.id}>
 									<ImageContainer image={image} />
