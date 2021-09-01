@@ -48,6 +48,19 @@ const ImageContainer = ({ image }) => {
 					<div className={styles.image_post_username}>
 						{image.user}
 					</div>
+					<div
+						onClick={async () => {
+							await dispatch(destroyImage(image.id));
+						}}
+						className={styles.trash_button}>
+						{user_id === image.user_id ? (
+							<img
+								className={styles.trash_img}
+								src={trashButton}
+								alt="trash bruh"
+							/>
+						) : null}
+					</div>
 				</div>
 			</div>
 			<div>
@@ -79,15 +92,6 @@ const ImageContainer = ({ image }) => {
 					</form>
 					<Errors />
 				</div>
-				{user_id === image.user_id ? (
-					<button
-						onClick={async () => {
-							await dispatch(destroyImage(image.id));
-						}}>
-						<img src={trashButton} alt="trash bruh" />
-						tradh
-					</button>
-				) : null}
 			</div>
 		</>
 	);
