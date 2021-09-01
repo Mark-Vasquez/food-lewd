@@ -1,3 +1,35 @@
 .image_page_container {
 	padding-top: 54px;
+	/* display: flex; */
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/* background-color: tomato; */
+}
+
+.middle_scroll_wrapper {
+	position: relative;
+	padding-top: 30px;
+	width: 935px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	/* background-color: turquoise; */
+}
+
+.left_images_container {
+	width: 614px;
+	height: 100%;
+	margin-right: 28px;
+}
+
+.right_info_container {
+	position: absolute;
+	right: 0;
+	top: 30px;
+	height: 100vh;
+	background-color: wheat;
+	margin-bottom: 30px;
+	width: 293px;
 }

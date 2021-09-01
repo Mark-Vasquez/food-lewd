@@ -19,12 +19,19 @@ const ImagesPage = () => {
 		<>
 			<Navbar />
 			<div className={styles.image_page_container}>
-				<h1>Images Page</h1>
-				{images.reverse().map((image) => (
-					<div key={image.id}>
-						<ImageContainer image={image} />
+				<div className={styles.middle_scroll_wrapper}>
+					<div className={styles.left_images_container}>
+						<div>
+							<h1>Images Page</h1>
+							{images.reverse().map((image) => (
+								<div key={image.id}>
+									<ImageContainer image={image} />
+								</div>
+							))}
+						</div>
 					</div>
-				))}
+					<div className={styles.right_info_container}></div>
+				</div>
 			</div>
 		</>
 	);
