@@ -4,9 +4,11 @@
 	margin-bottom: 24px;
 	border-radius: 3px;
 	width: 616px;
-	min-height: 1086px;
+	min-height: 200px;
 	display: flex;
 	flex-direction: column;
+	position: relative;
+	overflow: auto;
 }
 
 .header_container {
@@ -57,7 +59,8 @@
 }
 
 .pic_wrapper {
-	width: 614px;
+	/* width: 614px; */
+	width: 100%;
 	height: 750px;
 	margin-bottom: 16px;
 }
@@ -70,14 +73,11 @@
 	background-size: cover;
 }
 
-.comments_container {
-	padding: 0 16px;
+.photo_container {
 	overflow: auto;
-	/* display: flex; */
+	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	align-items: stretch;
-	line-height: 19px;
 }
 
 .image_owner {
@@ -89,35 +89,43 @@
 	color: rgb(161, 152, 140);
 }
 
-.view_all_div {
-	margin: 7px 0;
-}
-
-.comment_block {
-	display: flex;
-	flex-direction: column;
-}
-
 .commenters {
 	width: 500px;
 	display: flex;
-	margin-bottom: 3px;
+	margin-bottom: 4px;
 	justify-content: space-between;
 	position: relative;
+	align-items: center;
 }
 
 .comments {
-	/* background-color: violet; */
 	width: 500px;
+	line-height: 18px;
+	display: flex;
+	overflow-wrap: break-word;
+	display: inline;
+	margin-bottom: 4px;
+}
+
+.comment_owner {
+	font-weight: 600;
+}
+
+.comment_content {
+	font-weight: 500;
+	line-height: 20px;
 }
 
 .edit_trash_block {
 	width: 50px;
 	height: 19px;
-	position: relative;
-	left: 60px;
-	display: flex;
-	justify-content: space-between;
+	position: absolute;
+	left: 540px;
+	top: 0px;
+
+	/* right: 400px; */
+	/* display: flex;
+	justify-content: space-between; */
 }
 
 .edit_button {
@@ -129,4 +137,69 @@
 	height: 19px;
 	width: 19px;
 	cursor: pointer;
+}
+.comment_block {
+	display: flex;
+	flex-direction: column;
+	padding: 0 16px;
+	overflow-wrap: break-word;
+}
+.post_container {
+	bottom: 0;
+	padding: 0 16px;
+	margin-top: 4px;
+	line-height: 18px;
+	min-height: 56px;
+	border-top: 1px solid rgb(140, 130, 115);
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	resize: vertical;
+}
+
+.text_input {
+	height: 100%;
+	width: 511px;
+	resize: none;
+	color: #e5e3df;
+	font-family: "Roboto", sans-serif;
+	display: flex;
+	align-items: center;
+	/* background-color: black; */
+	border: none;
+	box-shadow: none;
+	/* background-color: wheat; */
+	resize: vertical;
+	vertical-align: middle;
+}
+
+.text_input:focus {
+	border: 0 none #fff;
+	overflow: hidden;
+	outline: none;
+}
+
+.bottom_third {
+	display: flex;
+	min-height: 28px;
+	width: 100%;
+	flex-direction: column;
+	position: relative;
+}
+
+.poster_caption_container {
+	padding: 0 16px;
+	overflow: auto;
+	line-height: 18px;
+}
+
+.image_owner {
+	overflow-wrap: break-word;
+	margin-bottom: 40px;
+}
+
+.view_all_div {
+	margin: 10px 0;
+	padding: 0 16px;
 }

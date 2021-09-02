@@ -67,10 +67,16 @@ const ImageContainer = ({ image }) => {
 						) : null}
 					</div>
 				</div>
-				<div className={styles.pic_wrapper}>
-					<img className={styles.pic} src={image.img} alt="posted" />
+				<div className={styles.photo_container}>
+					<div className={styles.pic_wrapper}>
+						<img
+							className={styles.pic}
+							src={image.img}
+							alt="posted"
+						/>
+					</div>
 				</div>
-				<div className={styles.comments_container}>
+				<div className={styles.bottom_third}>
 					<div className={styles.poster_caption_container}>
 						<span className={styles.image_owner}>{image.user}</span>{" "}
 						<span>&nbsp;</span> <span>{image.caption}</span>
@@ -79,7 +85,7 @@ const ImageContainer = ({ image }) => {
 						<Link
 							className={styles.view_all_link}
 							to={`/images/${image.id}`}>
-							View all comments
+							View all comments...
 						</Link>
 					</div>
 					<div className={styles.comment_block}>
@@ -88,13 +94,19 @@ const ImageContainer = ({ image }) => {
 								<>
 									<div className={styles.commenters}>
 										<div className={styles.comments}>
-											<span key={comment.id}>
-												{comment.user}
+											<span
+												className={styles.comment_owner}
+												key={comment.id}>
+												{comment.user}&nbsp;
+												<span
+													className={
+														styles.comment_content
+													}>
+													{comment.content}
+												</span>
 											</span>
-											<span>&nbsp;</span>{" "}
-											<span>{comment.content}</span>
 										</div>
-										<div
+										<span
 											className={styles.edit_trash_block}>
 											<span>
 												{" "}
@@ -123,12 +135,17 @@ const ImageContainer = ({ image }) => {
 													alt=""
 												/>{" "}
 											</span>
-										</div>
+										</span>
 									</div>
 								</>
 							) : null
 						)}
 					</div>
+					<di className={styles.post_container}>
+						<textarea
+							className={styles.text_input}
+							placeholder="Add a commeasdfasdfant..."></textarea>
+					</di>
 				</div>
 			</div>
 			<div>
