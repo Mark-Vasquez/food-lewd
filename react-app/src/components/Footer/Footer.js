@@ -24,7 +24,7 @@ const Footer = () => {
 							{" "}
 							<a
 								className={styles.github_text}
-								href="https://github.com/Mark-Vasquez">
+								href="https://github.com/Mark-Vasquez/food-lewd">
 								GitHub
 								<img
 									className={styles.github_logo}
