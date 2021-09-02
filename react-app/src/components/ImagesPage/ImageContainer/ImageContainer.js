@@ -5,7 +5,7 @@ import { postImageComment } from "../../../store/comments";
 import { Link } from "react-router-dom";
 import styles from "./ImageContainer.module.css";
 import { useState } from "react";
-import Errors from "../../Errors";
+
 import trashButton from "../../../assets/images/icons8-trash-60.png";
 import editCommentButton from "../../../assets/images/icons8-edit-48.png";
 import {
@@ -157,21 +157,7 @@ const ImageContainer = ({ image }) => {
 						</form>
 					</div>
 				</div>
-			</div>
-			<div>
-				<p>----Comment below-----</p>
-				<div>
-					<form onSubmit={handleSubmit}>
-						<textarea
-							value={comment}
-							placeholder="Add a comment..."
-							onChange={(e) => {
-								setComment(e.target.value);
-							}}></textarea>
-						<button>Post</button>
-					</form>
-					<Errors />
-				</div>
+				<div className={styles.errors}></div>
 			</div>
 		</>
 	);

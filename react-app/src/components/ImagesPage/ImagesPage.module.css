@@ -200,3 +200,9 @@
 	background-position: center;
 	margin-left: 7px;
 }
+
+.errors {
+	position: relative;
+	top: 300px;
+	left: 14px;
+}

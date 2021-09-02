@@ -8,6 +8,7 @@ import Navbar from "../Navbar";
 import styles from "./ImagesPage.module.css";
 import linkedinLogo from "../../assets/images/icons8-linkedin-64.png";
 import githubLogo from "../../assets/images/icons8-github-60.png";
+import Errors from "../Errors";
 
 const ImagesPage = () => {
 	const dispatch = useDispatch();
@@ -109,6 +110,9 @@ const ImagesPage = () => {
 									Foodlewd developed by Mark Vasquez
 								</span>
 							</div>
+						</div>
+						<div className={styles.errors}>
+							<Errors />
 						</div>
 					</div>
 				</div>

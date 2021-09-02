@@ -219,3 +219,7 @@
 	font-weight: 800;
 	font-size: 14px;
 }
+
+.errors {
+	padding-left: 16px;
+}
