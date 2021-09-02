@@ -131,6 +131,13 @@
 .edit_button {
 	height: 19px;
 	width: 19px;
+	background-image: url(../../../assets/images/icons8-edit-48.png);
+	background-color: rgb(0, 0, 0);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	border: none;
+	cursor: pointer;
 }
 
 .delete_button {
@@ -146,7 +153,8 @@
 }
 .post_container {
 	bottom: 0;
-	padding: 0 16px;
+	padding-left: 18px;
+	padding-right: 16px;
 	margin-top: 4px;
 	line-height: 18px;
 	min-height: 56px;
@@ -214,7 +222,18 @@
 	background-color: black;
 	color: rgb(32, 167, 255);
 	position: relative;
-	left: 40px;
+	left: 35px;
+	bottom: 18px;
+	font-weight: 800;
+	font-size: 14px;
+}
+
+.post_edit_button {
+	border: none;
+	background-color: black;
+	color: rgb(32, 167, 255);
+	position: relative;
+	left: 35px;
 	bottom: 18px;
 	font-weight: 800;
 	font-size: 14px;

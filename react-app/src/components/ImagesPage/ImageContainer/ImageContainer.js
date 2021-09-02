@@ -20,9 +20,12 @@ const ImageContainer = ({ image }) => {
 	const comments = useSelector((state) => Object.values(state.comments));
 	// const userImage = useSelector((state) => state.)
 	const [comment, setComment] = useState("");
+	const [clickedValue, setClickedValue] = useState(null);
+	const [commentEdit, setCommentEdit] = useState("");
 
 	const clearForm = () => {
 		setComment("");
+		setCommentEdit("");
 	};
 
 	const handleSubmit = async (e) => {
@@ -106,55 +109,112 @@ const ImageContainer = ({ image }) => {
 												</span>
 											</span>
 										</div>
-										<span
-											className={styles.edit_trash_block}>
-											<span>
-												{" "}
-												<img
-													className={
-														styles.edit_button
-													}
-													src={editCommentButton}
-													alt="Edit"
-												/>
-											</span>
-											<span>
-												{" "}
-												<img
-													onClick={async (e) =>
-														await dispatch(
-															destroyComment(
-																comment?.id
+										{user_id === comment.user_id ? (
+											<span
+												className={
+													styles.edit_trash_block
+												}>
+												<span>
+													{" "}
+													<button
+														className={
+															styles.edit_button
+														}
+														value={comment.id}
+														// If edit button value equals commentID and clickedValue is truthy,
+														// meaning a textarea is showing, setClicked value to null
+														// which will unrender the textarea
+														onClick={(e) => {
+															+e.target.value ===
+																+comment.id &&
+															clickedValue
+																? setClickedValue(
+																		null
+																  )
+																: setClickedValue(
+																		e.target
+																			.value
+																  );
+														}}></button>
+													{/* className={
+															styles.edit_button
+														}
+														src={editCommentButton}
+														alt="Edit"
+													/> */}
+												</span>
+												<span>
+													{" "}
+													<img
+														onClick={async (e) =>
+															await dispatch(
+																destroyComment(
+																	comment?.id
+																)
 															)
-														)
-													}
-													className={
-														styles.delete_button
-													}
-													src={trashButton}
-													alt=""
-												/>{" "}
+														}
+														className={
+															styles.delete_button
+														}
+														src={trashButton}
+														alt=""
+													/>{" "}
+												</span>
 											</span>
-										</span>
+										) : null}
 									</div>
 								</>
 							) : null
 						)}
 					</div>
 					<div className={styles.post_container}>
-						<form
-							className={styles.form_form}
-							onSubmit={handleSubmit}>
-							<textarea
-								value={comment}
-								spellCheck="false"
-								className={styles.text_input}
-								placeholder="Add a comment..."
-								onChange={(e) => {
-									setComment(e.target.value);
-								}}></textarea>
-							<button className={styles.post_button}>Post</button>
-						</form>
+						{console.log("CLICK CLACK ", clickedValue)}
+						{console.log("Cum id ", comment?.id)}
+
+						{clickedValue ? (
+							<form
+								className={styles.form_form}
+								onSubmit={async (e) => {
+									e.preventDefault();
+
+									const success = await dispatch(
+										editComment(clickedValue, commentEdit)
+									);
+
+									if (success) {
+										setClickedValue(null);
+										clearForm();
+									}
+								}}>
+								<textarea
+									className={styles.text_input}
+									value={commentEdit}
+									spellCheck="false"
+									placeholder="Edit a comment..."
+									onChange={(e) => {
+										setCommentEdit(e.target.value);
+									}}></textarea>
+								<button className={styles.post_edit_button}>
+									Edit
+								</button>
+							</form>
+						) : (
+							<form
+								className={styles.form_form}
+								onSubmit={handleSubmit}>
+								<textarea
+									value={comment}
+									spellCheck="false"
+									className={styles.text_input}
+									placeholder="Add a comment..."
+									onChange={(e) => {
+										setComment(e.target.value);
+									}}></textarea>
+								<button className={styles.post_button}>
+									Post
+								</button>
+							</form>
+						)}
 					</div>
 				</div>
 				<div className={styles.errors}></div>
