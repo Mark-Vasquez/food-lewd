@@ -5,6 +5,7 @@ import styles from "./SubmitImagePage.module.css";
 import { sendImage } from "../../store/image";
 import Errors from "../Errors";
 import NavBar from "../Navbar";
+import Footer from "../Footer";
 
 const SubmitImagePage = () => {
 	const dispatch = useDispatch();
@@ -25,57 +26,64 @@ const SubmitImagePage = () => {
 		} else {
 			setImageLoading(false);
 		}
-		// if (res.ok) {
-		// 	setImageLoading(false);
-		// 	history.push("/images");
-		// } else {
-		// 	setImageLoading(false);
-
-		// 	//errors here
-		// }
 	};
 
 	return (
 		<>
 			<NavBar />
-			<div className={styles.upload_page_container}>
-				<form onSubmit={handleSubmit}>
-					<h1>Submit the food</h1>
-					<div className={styles.upload_div}>
-						<label className={styles.upload_button}>
-							{photoSelected
-								? "Photo Selected!"
-								: "Upload a profile picture"}
-							<input
-								className={styles.upload_button}
-								type="file"
-								accept="image/*"
-								onChange={(e) => {
-									const file = e.target.files[0];
-									setImage(file);
-									setPhotoSelected(true);
-								}}
-							/>
-						</label>
+			<div className={styles.upload_page_wrapper}>
+				<div className={styles.submit_page_container}>
+					<div className={styles.splash_image}></div>
+					<div className={styles.text_field_wrapper}>
+						<div className={styles.field_container}>
+							<h1 className={styles.submit_header}>
+								Submit the Food
+							</h1>
+							<form
+								className={styles.form_form}
+								onSubmit={handleSubmit}>
+								<div className={styles.upload_div}>
+									<label className={styles.upload_button}>
+										{photoSelected
+											? "Photo Selected!"
+											: "Upload a profile picture"}
+										<input
+											className={styles.upload_button}
+											type="file"
+											accept="image/*"
+											onChange={(e) => {
+												const file = e.target.files[0];
+												setImage(file);
+												setPhotoSelected(true);
+											}}
+										/>
+									</label>
+								</div>
+
+								<div>
+									<textarea
+										spellCheck="false"
+										className={styles.caption_textarea}
+										value={caption}
+										placeholder="Caption this photo"
+										onChange={(e) => {
+											setCaption(e.target.value);
+										}}
+									/>
+								</div>
+								<button
+									className={styles.submit_button}
+									type="submit">
+									Submit
+								</button>
+								<Errors />
+								{imageLoading && <p>Loading...</p>}
+							</form>
+						</div>
 					</div>
-					<label className={styles.caption_label}>
-						Caption This!
-					</label>
-					<div>
-						<textarea
-							className={styles.caption_textare}
-							value={caption}
-							placeholder="Caption this photo"
-							onChange={(e) => {
-								setCaption(e.target.value);
-							}}
-						/>
-					</div>
-					<button type="submit">Submit</button>
-					<Errors />
-					{imageLoading && <p>Loading...</p>}
-				</form>
+				</div>
 			</div>
+			<Footer />
 		</>
 	);
 };
