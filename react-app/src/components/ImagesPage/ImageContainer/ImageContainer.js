@@ -89,7 +89,7 @@ const ImageContainer = ({ image }) => {
 						</Link>
 					</div>
 					<div className={styles.comment_block}>
-						{comments.slice(-3).map((comment) =>
+						{comments.map((comment) =>
 							comment.image_id === image.id ? (
 								<>
 									<div className={styles.commenters}>
@@ -141,16 +141,17 @@ const ImageContainer = ({ image }) => {
 							) : null
 						)}
 					</div>
-					<di className={styles.post_container}>
-						<textarea
-							className={styles.text_input}
-							placeholder="Add a commeasdfasdfant..."></textarea>
-					</di>
+					<div className={styles.post_container}>
+						<form>
+							<textarea
+								spellCheck="false"
+								className={styles.text_input}
+								placeholder="Add a comment..."></textarea>
+						</form>
+					</div>
 				</div>
 			</div>
 			<div>
-				<h3>{image.user}</h3>
-				<p>{image.caption}</p>
 				<p>----Comment below-----</p>
 				<div>
 					<form onSubmit={handleSubmit}>

@@ -154,7 +154,7 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: fle;
 	resize: vertical;
 }
 
@@ -166,12 +166,16 @@
 	font-family: "Roboto", sans-serif;
 	display: flex;
 	align-items: center;
-	/* background-color: black; */
+	background-color: black;
 	border: none;
 	box-shadow: none;
-	/* background-color: wheat; */
 	resize: vertical;
-	vertical-align: middle;
+	display: block;
+	padding-top: 15px;
+}
+
+::-webkit-resizer {
+	display: none;
 }
 
 .text_input:focus {
