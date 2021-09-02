@@ -154,7 +154,7 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: fle;
+	justify-content: flex;
 	resize: vertical;
 }
 
@@ -171,7 +171,8 @@
 	box-shadow: none;
 	resize: vertical;
 	display: block;
-	padding-top: 15px;
+	padding-top: 16px;
+	display: inline;
 }
 
 ::-webkit-resizer {
@@ -206,4 +207,15 @@
 .view_all_div {
 	margin: 10px 0;
 	padding: 0 16px;
+}
+
+.post_button {
+	border: none;
+	background-color: black;
+	color: rgb(32, 167, 255);
+	position: relative;
+	left: 40px;
+	bottom: 18px;
+	font-weight: 800;
+	font-size: 14px;
 }

@@ -142,11 +142,18 @@ const ImageContainer = ({ image }) => {
 						)}
 					</div>
 					<div className={styles.post_container}>
-						<form>
+						<form
+							className={styles.form_form}
+							onSubmit={handleSubmit}>
 							<textarea
+								value={comment}
 								spellCheck="false"
 								className={styles.text_input}
-								placeholder="Add a comment..."></textarea>
+								placeholder="Add a comment..."
+								onChange={(e) => {
+									setComment(e.target.value);
+								}}></textarea>
+							<button className={styles.post_button}>Post</button>
 						</form>
 					</div>
 				</div>
