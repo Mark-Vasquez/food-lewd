@@ -56,7 +56,7 @@ function App() {
 				<ProtectedRoute path="/profile" exact={true}>
 					<ProfilePage />
 				</ProtectedRoute>
-				<ProtectedRoute path="/images/:image_id">
+				<ProtectedRoute path="/images/:image_id" exact={true}>
 					<ImagePage />
 				</ProtectedRoute>
 			</Switch>

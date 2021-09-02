@@ -22,7 +22,6 @@ const ImagePage = () => {
 	const [comment, setComment] = useState("");
 	const [commentEdit, setCommentEdit] = useState("");
 	const [clickedValue, setClickedValue] = useState(null);
-	const [clickedEdit, setClickedEdit] = useState(false);
 
 	const clearForm = () => {
 		setComment("");

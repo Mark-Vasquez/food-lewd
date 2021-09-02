@@ -38,18 +38,18 @@ export const sendImage = (image, caption) => async (dispatch) => {
 	const formData = new FormData();
 	formData.append("img", image);
 	formData.append("caption", caption);
-	console.log(formData, "formmmms");
 	const res = await fetch("/api/images/user", {
 		method: "POST",
 		body: formData,
 	});
 
 	const imagePost = await res.json(); // object data from formData
+	console.log("BRUH", imagePost);
 	if (res.ok) {
 		dispatch(postImage(imagePost));
 		return "Success";
 	} else {
-		// dispatch(setErrors(imagePost));
+		dispatch(setErrors(imagePost));
 	}
 };
 
@@ -131,7 +131,7 @@ const imageReducer = (state = initialState, action) => {
 			};
 		case GET_IMAGE:
 			return {
-				...state,
+				// Not spreading the other images in, just want to render one
 				...action.image,
 			};
 		case DELETE_IMAGE:
