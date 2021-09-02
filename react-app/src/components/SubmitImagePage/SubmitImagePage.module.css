@@ -1,8 +1,74 @@
-.upload_page_container {
+.upload_page_wrapper {
 	padding-top: 54px;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+
+.submit_page_container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 32px auto 0;
+	max-width: 935px;
+	padding-bottom: 32px;
+	width: 100%;
+	height: 778px;
+	vertical-align: baseline;
+	align-items: center;
+}
+
+.splash_image {
+	background-image: url(../../assets/images/scott-eckersley-h6U7qtZi12U-unsplash.jpg);
+	background-size: 454px 618px;
+	margin-left: 8px;
+	margin-right: 15px;
+	height: 618px;
+	width: 454px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.text_field_wrapper {
+	display: flex;
+	justify-content: center;
+	margin-top: 12px;
+	width: 350px;
+	height: 717px;
+	flex-direction: column;
+	position: relative;
+	margin-right: 40px;
+	margin-left: 15px;
+}
+
+.field_container {
+	background-color: black;
+	border: 1px solid rgb(122, 113, 100);
+	border-radius: 1px;
+	margin: 0 0 10px;
+	padding: 10px 0;
+	display: flex;
+	flex-direction: column;
+	width: 350px;
+	height: 380px;
+}
+
+.submit_header {
+	margin: 22px auto 12px;
+	font-size: 35px;
+}
+
+.form_form {
+	display: flex;
+	flex-direction: column;
+	height: 263px;
+	width: 348px;
+	align-items: center;
+	margin-bottom: 10px;
+	max-width: 350px;
+	margin-top: 24px;
+	align-items: center;
 }
 
 .upload_div {
@@ -17,13 +83,13 @@ input[type="file"] {
 }
 
 .upload_button {
-	margin: 8px 40px;
+	margin: 8px 40px 10px 40px;
 	border: 1px solid rgb(93, 93, 93);
 	width: 268px;
 	height: 30px;
-	background-color: rgba(101, 105, 109, 0.726);
+	background-color: rgba(2, 98, 161, 0.726);
 	border: 1px solid transparent;
-	padding: 6px 8px 4px 8px;
+	padding: 04px 8px 4px 8px;
 	color: rgb(232, 230, 227);
 	border-radius: 4px;
 	display: flex;
@@ -33,5 +99,37 @@ input[type="file"] {
 }
 
 .upload_button:hover {
-	background-color: rgba(51, 84, 117, 0.726);
+	background-color: rgba(0, 119, 197);
+}
+
+.caption_textarea {
+	margin: 0 40px 0px;
+	border: 1px solid rgb(122, 113, 100);
+	width: 268px;
+	min-height: 120px;
+	background-color: rgb(14, 15, 15);
+	padding: 9px 0 9px 8px;
+	color: rgb(197, 194, 189);
+	font-family: "Roboto", sans-serif;
+	resize: vertical;
+}
+
+.submit_button {
+	margin: 8px 40px 10px 40px;
+	border: 1px solid rgb(93, 93, 93);
+	width: 268px;
+	height: 30px;
+	background-color: rgba(2, 98, 161, 0.726);
+	border: 1px solid transparent;
+	padding: 04px 8px 4px 8px;
+	color: rgb(232, 230, 227);
+	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 700;
+}
+
+.submit_button:hover {
+	background-color: rgba(0, 119, 197);
 }
