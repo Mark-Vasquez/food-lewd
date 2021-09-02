@@ -44,7 +44,6 @@ export const sendImage = (image, caption) => async (dispatch) => {
 	});
 
 	const imagePost = await res.json(); // object data from formData
-	console.log("BRUH", imagePost);
 	if (res.ok) {
 		dispatch(postImage(imagePost));
 		return "Success";

@@ -83,8 +83,6 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("ASSword", form.data['password'])
-    print("CONDOM", form.data['confirm'])
     if form.validate_on_submit():
         user = User(
             username=form.data['username'],

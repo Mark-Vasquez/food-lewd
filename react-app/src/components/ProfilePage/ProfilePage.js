@@ -8,7 +8,6 @@ const ProfilePage = () => {
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const images = useSelector((state) => Object.values(state.images));
-	console.log("Images by user:1 ", images);
 
 	useEffect(() => {
 		dispatch(fetchUserImages());
