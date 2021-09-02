@@ -40,7 +40,8 @@ const SignUpForm = () => {
 		);
 		if (success) {
 			setImageLoading(false);
-			history.push("/profile");
+			// make profile after styling
+			history.push("/");
 		} else {
 			setImageLoading(false);
 		}
