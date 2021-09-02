@@ -46,7 +46,7 @@ const SubmitImagePage = () => {
 									<label className={styles.upload_button}>
 										{photoSelected
 											? "Photo Selected!"
-											: "Upload a profile picture"}
+											: "Upload a picture!"}
 										<input
 											className={styles.upload_button}
 											type="file"
