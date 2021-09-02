@@ -5,7 +5,6 @@
 	border-radius: 3px;
 	width: 616px;
 	min-height: 1086px;
-	/* background-color: tomato; */
 	display: flex;
 	flex-direction: column;
 }
@@ -74,7 +73,7 @@
 .comments_container {
 	padding: 0 16px;
 	overflow: auto;
-	display: flex;
+	/* display: flex; */
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: stretch;
@@ -83,4 +82,50 @@
 
 .image_owner {
 	font-weight: 600;
+}
+
+.view_all_link {
+	text-decoration: none;
+	color: rgb(161, 152, 140);
+}
+
+.view_all_div {
+	margin: 7px 0;
+}
+
+.comment_block {
+	display: flex;
+	flex-direction: column;
+}
+
+.commenters {
+	width: 500px;
+	display: flex;
+	margin-bottom: 3px;
+	justify-content: space-between;
+	position: relative;
+}
+
+.comments {
+	/* background-color: violet; */
+	width: 500px;
+}
+
+.edit_trash_block {
+	width: 50px;
+	height: 19px;
+	position: relative;
+	left: 60px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.edit_button {
+	height: 19px;
+	width: 19px;
+}
+
+.delete_button {
+	height: 19px;
+	width: 19px;
 }

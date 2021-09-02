@@ -8,6 +8,7 @@ import styles from "./ImageContainer.module.css";
 import { useState } from "react";
 import Errors from "../../Errors";
 import trashButton from "../../../assets/images/icons8-trash-60.png";
+import editCommentButton from "../../../assets/images/icons8-edit-48.png";
 
 const ImageContainer = ({ image }) => {
 	const dispatch = useDispatch();
@@ -70,12 +71,52 @@ const ImageContainer = ({ image }) => {
 						<span className={styles.image_owner}>{image.user}</span>{" "}
 						<span>&nbsp;</span> <span>{image.caption}</span>
 					</div>
-					<div>
+					<div className={styles.view_all_div}>
 						<Link
-							className={styles.user_name_link}
+							className={styles.view_all_link}
 							to={`/images/${image.id}`}>
 							View all comments
 						</Link>
+					</div>
+					<div className={styles.comment_block}>
+						{comments.slice(-3).map((comment) =>
+							comment.image_id === image.id ? (
+								<>
+									<div className={styles.commenters}>
+										<div className={styles.comments}>
+											<span key={comment.id}>
+												{comment.user}
+											</span>
+											<span>&nbsp;</span>{" "}
+											<span>{comment.content}</span>
+										</div>
+										<div
+											className={styles.edit_trash_block}>
+											<span>
+												{" "}
+												<img
+													className={
+														styles.edit_button
+													}
+													src={editCommentButton}
+													alt="Edit"
+												/>
+											</span>
+											<span>
+												{" "}
+												<img
+													className={
+														styles.delete_button
+													}
+													src={trashButton}
+													alt=""
+												/>{" "}
+											</span>
+										</div>
+									</div>
+								</>
+							) : null
+						)}
 					</div>
 				</div>
 			</div>
@@ -83,18 +124,6 @@ const ImageContainer = ({ image }) => {
 				<h3>{image.user}</h3>
 				<p>{image.caption}</p>
 				<p>----Comment below-----</p>
-				<div>
-					<p>All Comments</p>
-					{comments.map((comment) =>
-						comment.image_id === image.id ? (
-							<p key={comment.id}>
-								<b>{comment.user}</b>
-								<span> </span>
-								<span>{comment.content}</span>
-							</p>
-						) : null
-					)}
-				</div>
 				<div>
 					<form onSubmit={handleSubmit}>
 						<textarea
