@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import styles from "./SubmitImagePage.module.css";
 import { sendImage } from "../../store/image";
 import Errors from "../Errors";
+import NavBar from "../Navbar";
 
 const SubmitImagePage = () => {
 	const dispatch = useDispatch();
@@ -35,40 +36,47 @@ const SubmitImagePage = () => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<h1>Submit the food</h1>
-			<div className={styles.upload_div}>
-				<label className={styles.upload_button}>
-					{photoSelected
-						? "Photo Selected!"
-						: "Upload a profile picture"}
-					<input
-						className={styles.upload_button}
-						type="file"
-						accept="image/*"
-						onChange={(e) => {
-							const file = e.target.files[0];
-							setImage(file);
-							setPhotoSelected(true);
-						}}
-					/>
-				</label>
+		<>
+			<NavBar />
+			<div className={styles.upload_page_container}>
+				<form onSubmit={handleSubmit}>
+					<h1>Submit the food</h1>
+					<div className={styles.upload_div}>
+						<label className={styles.upload_button}>
+							{photoSelected
+								? "Photo Selected!"
+								: "Upload a profile picture"}
+							<input
+								className={styles.upload_button}
+								type="file"
+								accept="image/*"
+								onChange={(e) => {
+									const file = e.target.files[0];
+									setImage(file);
+									setPhotoSelected(true);
+								}}
+							/>
+						</label>
+					</div>
+					<label className={styles.caption_label}>
+						Caption This!
+					</label>
+					<div>
+						<textarea
+							className={styles.caption_textare}
+							value={caption}
+							placeholder="Caption this photo"
+							onChange={(e) => {
+								setCaption(e.target.value);
+							}}
+						/>
+					</div>
+					<button type="submit">Submit</button>
+					<Errors />
+					{imageLoading && <p>Loading...</p>}
+				</form>
 			</div>
-			<label className={styles.caption_label}>Caption This!</label>
-			<div>
-				<textarea
-					className={styles.caption_textare}
-					value={caption}
-					placeholder="Caption this photo"
-					onChange={(e) => {
-						setCaption(e.target.value);
-					}}
-				/>
-			</div>
-			<button type="submit">Submit</button>
-			<Errors />
-			{imageLoading && <p>Loading...</p>}
-		</form>
+		</>
 	);
 };
 
