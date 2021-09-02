@@ -128,4 +128,5 @@
 .delete_button {
 	height: 19px;
 	width: 19px;
+	cursor: pointer;
 }

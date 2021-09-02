@@ -1,4 +1,3 @@
-import { fetchImageComments } from "../../../store/comments";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { destroyImage } from "../../../store/image";
@@ -9,6 +8,11 @@ import { useState } from "react";
 import Errors from "../../Errors";
 import trashButton from "../../../assets/images/icons8-trash-60.png";
 import editCommentButton from "../../../assets/images/icons8-edit-48.png";
+import {
+	fetchImageComments,
+	destroyComment,
+	editComment,
+} from "../../../store/comments";
 
 const ImageContainer = ({ image }) => {
 	const dispatch = useDispatch();
@@ -105,6 +109,13 @@ const ImageContainer = ({ image }) => {
 											<span>
 												{" "}
 												<img
+													onClick={async (e) =>
+														await dispatch(
+															destroyComment(
+																comment?.id
+															)
+														)
+													}
 													className={
 														styles.delete_button
 													}
