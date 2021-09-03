@@ -80,6 +80,8 @@ const ImagesPage = () => {
 										{" "}
 										<a
 											className={styles.github_text}
+											target="_blank"
+											rel="noopener noreferrer"
 											href="https://github.com/Mark-Vasquez">
 											GitHub
 											<img
@@ -92,6 +94,8 @@ const ImagesPage = () => {
 									<div className={styles.linkedin_container}>
 										<a
 											className={styles.linked_in_text}
+											target="_blank"
+											rel="noopener noreferrer"
 											href="https://www.linkedin.com/in/mark-vasquez-439858212/">
 											Linkedin
 											<img
