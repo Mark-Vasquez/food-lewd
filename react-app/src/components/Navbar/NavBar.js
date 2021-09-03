@@ -31,11 +31,11 @@ const NavBar = () => {
 							/>
 						</Link>
 					</div>
-					<div>
+					{/* <div>
 						<p className={styles.welcome_message}>
 							Welcome, {userName}!
 						</p>
-					</div>
+					</div> */}
 					{/* <div>
 						<Link to="/profile">
 							<img

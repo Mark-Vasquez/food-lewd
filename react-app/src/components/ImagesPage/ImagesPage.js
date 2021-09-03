@@ -49,6 +49,7 @@ const ImagesPage = () => {
 								{/* <Link
 									className={styles.user_name_link}
 									to="/profile"> */}
+								<span>Hello, </span>
 								{userName}
 								{/* </Link> */}
 							</div>
