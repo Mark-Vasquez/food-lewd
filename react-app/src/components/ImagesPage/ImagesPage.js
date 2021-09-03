@@ -37,20 +37,20 @@ const ImagesPage = () => {
 					<div className={styles.right_info_container}>
 						<div className={styles.profile_name_container}>
 							<div className={styles.profile_logo_container}>
-								<Link to="/profile">
-									<img
-										className={styles.profile_pic}
-										src={userPic}
-										alt="profile pic"
-									/>
-								</Link>
+								{/* <Link to="/profile"> */}
+								<img
+									className={styles.profile_pic}
+									src={userPic}
+									alt="profile pic"
+								/>
+								{/* </Link> */}
 							</div>
 							<div className={styles.user_name}>
-								<Link
+								{/* <Link
 									className={styles.user_name_link}
-									to="/profile">
-									{userName}
-								</Link>
+									to="/profile"> */}
+								{userName}
+								{/* </Link> */}
 							</div>
 						</div>
 						{/* Complete users feature after grading */}

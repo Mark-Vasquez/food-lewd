@@ -53,12 +53,12 @@ function App() {
 				<ProtectedRoute path="/images/new" exact={true}>
 					<SubmitImagePage />
 				</ProtectedRoute>
-				<ProtectedRoute path="/profile" exact={true}>
+				{/* <ProtectedRoute path="/profile" exact={true}>
 					<ProfilePage />
-				</ProtectedRoute>
-				<ProtectedRoute path="/images/:image_id" exact={true}>
+				</ProtectedRoute> */}
+				{/* <ProtectedRoute path="/images/:image_id" exact={true}>
 					<ImagePage />
-				</ProtectedRoute>
+				</ProtectedRoute> */}
 			</Switch>
 		</BrowserRouter>
 	);

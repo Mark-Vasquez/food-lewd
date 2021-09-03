@@ -83,13 +83,13 @@ const ImageContainer = ({ image }) => {
 						<span className={styles.image_owner}>{image.user}</span>{" "}
 						<span>&nbsp;</span> <span>{image.caption}</span>
 					</div>
-					<div className={styles.view_all_div}>
+					{/* <div className={styles.view_all_div}>
 						<Link
 							className={styles.view_all_link}
 							to={`/images/${image.id}`}>
 							View all comments...
 						</Link>
-					</div>
+					</div> */}
 					<div className={styles.comment_block}>
 						{comments.map((comment) =>
 							comment.image_id === image.id ? (
