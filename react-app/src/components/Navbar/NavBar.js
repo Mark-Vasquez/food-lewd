@@ -36,7 +36,7 @@ const NavBar = () => {
 							Welcome, {userName}!
 						</p>
 					</div>
-					<div>
+					{/* <div>
 						<Link to="/profile">
 							<img
 								className={styles.profile_pic}
@@ -44,7 +44,7 @@ const NavBar = () => {
 								alt="profile pic"
 							/>
 						</Link>
-					</div>
+					</div> */}
 					<div>
 						<Link to="/images/new">
 							<img
