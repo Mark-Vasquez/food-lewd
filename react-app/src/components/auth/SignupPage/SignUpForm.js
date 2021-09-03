@@ -23,7 +23,7 @@ const SignUpForm = () => {
 	const [profileImage, setProfileImage] = useState("");
 	const [photoSelected, setPhotoSelected] = useState(false);
 
-	// Resetting errors from login page
+	// Resetting errors from images
 	useEffect(() => {
 		dispatch(setErrors(null));
 	}, [dispatch]);
