@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import styles from "./SubmitImagePage.module.css";
 import { sendImage } from "../../store/image";
 import Errors from "../Errors";
 import NavBar from "../Navbar";
 import Footer from "../Footer";
+import { setErrors } from "../../store/errors";
 
 const SubmitImagePage = () => {
 	const dispatch = useDispatch();
@@ -14,6 +15,11 @@ const SubmitImagePage = () => {
 	const [imageLoading, setImageLoading] = useState(false);
 	const [caption, setCaption] = useState("");
 	const [photoSelected, setPhotoSelected] = useState(false);
+
+	// Resetting errors from login page
+	useEffect(() => {
+		dispatch(setErrors(null));
+	}, [dispatch]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
