@@ -117,11 +117,12 @@
 }
 
 .edit_trash_block {
-	width: 50px;
+	width: 80px;
 	height: 19px;
 	position: absolute;
-	left: 540px;
+	left: 510px;
 	top: 0px;
+	display: inline;
 
 	/* right: 400px; */
 	/* display: flex;
@@ -138,12 +139,25 @@
 	background-position: center;
 	border: none;
 	cursor: pointer;
+	position: absolute;
+	left: 15px;
+}
+
+.cancel_button {
+	color: rgb(238, 81, 94);
+	background-color: black;
+	border: none;
+	font-weight: 800;
+	position: absolute;
+	top: 2px;
 }
 
 .delete_button {
 	height: 19px;
 	width: 19px;
 	cursor: pointer;
+	position: absolute;
+	left: 56px;
 }
 .comment_block {
 	display: flex;
@@ -233,7 +247,7 @@
 	background-color: black;
 	color: rgb(32, 167, 255);
 	position: relative;
-	left: 35px;
+	left: 25px;
 	bottom: 18px;
 	font-weight: 800;
 	font-size: 14px;

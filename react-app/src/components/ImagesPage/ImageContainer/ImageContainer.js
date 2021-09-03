@@ -5,9 +5,7 @@ import { postImageComment } from "../../../store/comments";
 import { Link } from "react-router-dom";
 import styles from "./ImageContainer.module.css";
 import { useState } from "react";
-
 import trashButton from "../../../assets/images/icons8-trash-60.png";
-import editCommentButton from "../../../assets/images/icons8-edit-48.png";
 import {
 	fetchImageComments,
 	destroyComment,
@@ -21,8 +19,9 @@ const ImageContainer = ({ image }) => {
 	// const userImage = useSelector((state) => state.)
 	const [comment, setComment] = useState("");
 	const [clickedValue, setClickedValue] = useState(null);
+	const [clickedEdit, setClickedEdit] = useState(null);
 	const [commentEdit, setCommentEdit] = useState("");
-
+	console.log(clickedEdit);
 	const clearForm = () => {
 		setComment("");
 		setCommentEdit("");
@@ -109,14 +108,36 @@ const ImageContainer = ({ image }) => {
 												</span>
 											</span>
 										</div>
+
 										{user_id === comment.user_id ? (
-											<span
+											// whether to show edit/delete
+											<div
 												className={
 													styles.edit_trash_block
 												}>
-												<span>
-													{" "}
+												{" "}
+												{clickedEdit === true &&
+												+clickedValue ===
+													comment?.id ? (
 													<button
+														// shows cancel
+														className={
+															styles.cancel_button
+														}
+														onClick={(e) => {
+															e.preventDefault();
+															setClickedEdit(
+																false
+															);
+															setClickedValue(
+																null
+															);
+														}}>
+														Cancel
+													</button>
+												) : (
+													<button
+														// shows pen
 														className={
 															styles.edit_button
 														}
@@ -125,42 +146,32 @@ const ImageContainer = ({ image }) => {
 														// meaning a textarea is showing, setClicked value to null
 														// which will unrender the textarea
 														onClick={(e) => {
-															+e.target.value ===
-																+comment.id &&
-															clickedValue
-																? setClickedValue(
-																		null
-																  )
-																: setClickedValue(
-																		e.target
-																			.value
-																  );
-														}}></button>
-													{/* className={
-															styles.edit_button
-														}
-														src={editCommentButton}
-														alt="Edit"
-													/> */}
-												</span>
-												<span>
-													{" "}
-													<img
-														onClick={async (e) =>
-															await dispatch(
-																destroyComment(
-																	comment?.id
-																)
+															e.preventDefault();
+															setClickedValue(
+																e.target.value
+															);
+															setClickedEdit(
+																true
+															);
+														}}>
+														{" "}
+													</button>
+												)}{" "}
+												<img
+													onClick={async (e) =>
+														await dispatch(
+															destroyComment(
+																comment?.id
 															)
-														}
-														className={
-															styles.delete_button
-														}
-														src={trashButton}
-														alt=""
-													/>{" "}
-												</span>
-											</span>
+														)
+													}
+													className={
+														styles.delete_button
+													}
+													src={trashButton}
+													alt=""
+												/>{" "}
+											</div>
 										) : null}
 									</div>
 								</>
@@ -168,9 +179,6 @@ const ImageContainer = ({ image }) => {
 						)}
 					</div>
 					<div className={styles.post_container}>
-						{console.log("CLICK CLACK ", clickedValue)}
-						{console.log("Cum id ", comment?.id)}
-
 						{clickedValue ? (
 							<form
 								className={styles.form_form}
@@ -195,7 +203,7 @@ const ImageContainer = ({ image }) => {
 										setCommentEdit(e.target.value);
 									}}></textarea>
 								<button className={styles.post_edit_button}>
-									Edit
+									Submit
 								</button>
 							</form>
 						) : (
