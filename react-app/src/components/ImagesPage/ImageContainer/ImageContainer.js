@@ -21,7 +21,7 @@ const ImageContainer = ({ image }) => {
 	const [clickedValue, setClickedValue] = useState(null);
 	const [clickedEdit, setClickedEdit] = useState(null);
 	const [commentEdit, setCommentEdit] = useState("");
-	console.log(clickedEdit);
+
 	const clearForm = () => {
 		setComment("");
 		setCommentEdit("");
