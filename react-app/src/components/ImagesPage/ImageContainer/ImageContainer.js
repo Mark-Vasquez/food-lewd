@@ -69,14 +69,8 @@ const ImageContainer = ({ image }) => {
 						) : null}
 					</div>
 				</div>
-				<div className={styles.photo_container}>
-					<div className={styles.pic_wrapper}>
-						<img
-							className={styles.pic}
-							src={image.img}
-							alt="posted"
-						/>
-					</div>
+				<div className={styles.pic_wrapper}>
+					<img className={styles.pic} src={image.img} alt="posted" />
 				</div>
 				<div className={styles.bottom_third}>
 					<div className={styles.poster_caption_container}>
