@@ -211,11 +211,18 @@
 	padding-top: 13px;
 }
 
+.image_caption {
+	font-weight: 500;
+}
+
 .poster_caption_container {
+	display: flex;
 	padding: 0 16px;
-	overflow: auto;
 	line-height: 18px;
 	margin-bottom: 20px;
+	width: 614px;
+	overflow-wrap: break-word;
+	display: inline;
 }
 
 .image_owner {

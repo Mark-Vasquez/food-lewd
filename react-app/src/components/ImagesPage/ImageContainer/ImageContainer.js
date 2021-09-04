@@ -77,8 +77,12 @@ const ImageContainer = ({ image }) => {
 				</div>
 				<div className={styles.bottom_third}>
 					<div className={styles.poster_caption_container}>
-						<span className={styles.image_owner}>{image.user}</span>{" "}
-						<span>&nbsp;</span> <span>{image.caption}</span>
+						<span className={styles.image_owner}>
+							{image.user}&nbsp;
+							<span className={styles.image_caption}>
+								{image.caption}
+							</span>
+						</span>
 					</div>
 					{/* <div className={styles.view_all_div}>
 						<Link
