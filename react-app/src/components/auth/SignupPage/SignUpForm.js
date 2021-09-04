@@ -165,7 +165,9 @@ const SignUpForm = () => {
 					</div>
 					<div className={styles.login_container}>
 						<p>Have an account?</p>
-						<Link className={styles.login_text}>Log in</Link>
+						<Link className={styles.login_text} to="/">
+							Log in
+						</Link>
 					</div>
 					<div className={styles.hidden_error_div}>
 						<Errors />
