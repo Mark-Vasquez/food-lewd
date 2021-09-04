@@ -12,7 +12,7 @@
 }
 
 .header_container {
-	border-bottom: 1px solid rgb(127, 118, 105);
+	/* border-bottom: 1px solid rgb(127, 118, 105); */
 	width: 614px;
 	height: 60px;
 	display: flex;
