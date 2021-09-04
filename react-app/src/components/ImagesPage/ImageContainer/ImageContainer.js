@@ -22,6 +22,9 @@ const ImageContainer = ({ image }) => {
 	const [clickedEdit, setClickedEdit] = useState(null);
 	const [commentEdit, setCommentEdit] = useState("");
 
+	// My function to call inside the onClick to set the commentEdit state
+	const setCommentEditFunc = (comm) => setCommentEdit(comm);
+
 	const clearForm = () => {
 		setComment("");
 		setCommentEdit("");
@@ -146,6 +149,9 @@ const ImageContainer = ({ image }) => {
 															);
 															setClickedEdit(
 																true
+															);
+															setCommentEditFunc(
+																comment.content
 															);
 														}}>
 														{" "}
