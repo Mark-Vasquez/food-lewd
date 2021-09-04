@@ -49,9 +49,10 @@
 	width: 57px;
 	height: 57px;
 	border-radius: 50%;
-	background-size: contain;
+	/* background-size: contain;
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: center; */
+	object-fit: cover;
 }
 
 .user_name {
