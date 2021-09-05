@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllImages, destroyImage } from "../../store/image";
-import { fetchImageComments } from "../../store/comments";
-import { Link } from "react-router-dom";
+import { fetchAllImages } from "../../store/image";
 import ImageContainer from "./ImageContainer/ImageContainer";
 import Navbar from "../Navbar";
 import styles from "./ImagesPage.module.css";
