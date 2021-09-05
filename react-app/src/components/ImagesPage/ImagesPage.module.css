@@ -31,6 +31,12 @@
 	flex-direction: column;
 }
 
+@media (max-width: 1085px) {
+	.right_info_container {
+		display: none;
+	}
+}
+
 .profile_name_container {
 	width: 293px;
 	height: 56px;
