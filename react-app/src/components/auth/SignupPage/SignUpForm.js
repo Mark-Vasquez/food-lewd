@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { signUp } from "../../../store/session";
 import Errors from "../../Errors";
-import { NavLink } from "react-router-dom";
 import styles from "./SignupPage.module.css";
 import Footer from "../../Footer";
 import { useEffect } from "react";
