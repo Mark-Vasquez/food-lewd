@@ -4,6 +4,12 @@
 
 [Foodlewd](https://food-lewd.herokuapp.com/) is a fullstack app created to connect foodlovers through photography and interactivity. Users can upload their photos to be commented on by others. The pictures as well as comments can be deleted in case a user changes their mind. Comments also be easily edited. This allows users from all over the world to easily share and flex what's for dinner, whether it's a luxurious meal or something cheap and decadent.
 
+## App in Action
+
+![](2021-09-08-14-49-09.png)
+![](2021-09-08-14-49-47.png)
+![](2021-09-08-14-50-04.png)
+
 ## Application Architecture
 
 Foodlewd's frontend is built on a React with Redux to manage the application's state. Python backend is used to serve the frontend using Flask. PostgreSQL is used as the application's database.
